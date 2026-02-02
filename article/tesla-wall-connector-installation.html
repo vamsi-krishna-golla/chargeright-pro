@@ -7,7 +7,7 @@
     <meta name="keywords" content="Tesla Wall Connector installation, Tesla home charger install, Gen 3 Wall Connector DIY, Tesla EVSE installation">
     <title>Tesla Wall Connector Gen 3: Complete DIY Installation Guide | ChargeRight Pro</title>
     <link rel="canonical" href="https://chargerightpro.com/article/tesla-wall-connector-installation">
-    
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZMLSGHDJE"></script>
     <script>
@@ -16,97 +16,145 @@
       gtag('js', new Date());
       gtag('config', 'G-5ZMLSGHDJE');
     </script>
-    
-    <!-- Same styles as main site -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary: #0D1117;
             --accent: #00D26A;
+            --accent-hover: #00B85C;
             --surface: #161B22;
             --surface-light: #21262D;
             --text: #E6EDF3;
             --text-dim: #8B949E;
-            --font-body: 'DM Sans', sans-serif;
-            --font-mono: 'Space Mono', monospace;
+            --border: #30363D;
+            --warning: #F0883E;
         }
-        
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
         body {
-            font-family: var(--font-body);
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--primary);
             color: var(--text);
-            line-height: 1.8;
+            line-height: 1.7;
         }
-        
-        .article-header {
-            padding: 8rem 2rem 4rem;
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); }
+
+        /* Header */
+        header {
             background: var(--surface);
-            border-bottom: 1px solid var(--surface-light);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo:hover { color: var(--text); }
+        .logo span { color: var(--accent); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-dim);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: var(--accent); }
+
+        /* Article Layout */
+        .article-header {
+            background: var(--surface);
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
         .article-header-content {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .breadcrumb {
             color: var(--text-dim);
             font-size: 0.9rem;
-            margin-bottom: 2rem;
-        }
-        
-        .breadcrumb a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-        
-        .article-header h1 {
-            font-size: 2.8rem;
-            line-height: 1.2;
             margin-bottom: 1.5rem;
         }
-        
+
+        .breadcrumb a { color: var(--accent); }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
         .article-meta {
             display: flex;
             gap: 2rem;
             color: var(--text-dim);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
-        
-        .article-body {
+
+        .article-content {
             max-width: 800px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 3rem 2rem;
         }
-        
-        .article-body h2 {
-            font-size: 1.8rem;
+
+        .article-content h2 {
+            font-size: 1.75rem;
             margin: 3rem 0 1.5rem;
             color: var(--accent);
         }
-        
-        .article-body h3 {
-            font-size: 1.4rem;
+
+        .article-content h3 {
+            font-size: 1.35rem;
             margin: 2rem 0 1rem;
         }
-        
-        .article-body p {
+
+        .article-content p {
             margin-bottom: 1.5rem;
-            color: var(--text);
         }
-        
-        .article-body ul, .article-body ol {
-            margin: 1.5rem 0 1.5rem 2rem;
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
         }
-        
-        .article-body li {
+
+        .article-content li {
             margin-bottom: 0.75rem;
         }
-        
+
+        /* Info Boxes */
         .info-box {
             background: var(--surface);
             border-left: 4px solid var(--accent);
@@ -114,111 +162,187 @@
             margin: 2rem 0;
             border-radius: 0 8px 8px 0;
         }
-        
+
         .warning-box {
             background: rgba(240, 136, 62, 0.1);
-            border-left: 4px solid #F0883E;
+            border-left: 4px solid var(--warning);
             padding: 1.5rem;
             margin: 2rem 0;
             border-radius: 0 8px 8px 0;
         }
-        
-        .tool-list {
+
+        /* Product Box */
+        .product-box {
             background: var(--surface);
-            padding: 2rem;
+            border: 1px solid var(--border);
             border-radius: 12px;
+            padding: 2rem;
             margin: 2rem 0;
         }
-        
-        .tool-list h4 {
-            margin-bottom: 1rem;
-            color: var(--accent);
+
+        .product-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
         }
-        
-        .affiliate-link {
+
+        .btn {
             display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
             background: var(--accent);
             color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            margin: 0.5rem 0;
-            transition: opacity 0.2s;
         }
-        
-        .affiliate-link:hover {
-            opacity: 0.9;
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            color: var(--primary);
         }
-        
+
+        /* Steps */
+        .step {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
         .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             background: var(--accent);
             color: var(--primary);
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 700;
-            margin-right: 0.75rem;
+            flex-shrink: 0;
         }
-        
-        .cta-box {
-            background: linear-gradient(135deg, var(--surface), var(--surface-light));
-            padding: 3rem;
-            border-radius: 16px;
-            text-align: center;
-            margin: 4rem 0;
+
+        .step-content h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
         }
-        
-        .cta-box h3 {
-            margin-bottom: 1rem;
-        }
-        
-        .cta-box p {
-            color: var(--text-dim);
-            margin-bottom: 1.5rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--accent);
-            color: var(--primary);
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--surface);
             border-radius: 8px;
-            text-decoration: none;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--surface-light);
             font-weight: 600;
+            color: var(--accent);
         }
-        
-        /* Schema markup for rich snippets */
-        .faq-section {
-            margin: 3rem 0;
-        }
-        
+
+        tr:last-child td { border-bottom: none; }
+
+        /* FAQ */
         .faq-item {
             background: var(--surface);
             border-radius: 8px;
             margin-bottom: 1rem;
             overflow: hidden;
         }
-        
+
         .faq-question {
-            padding: 1.5rem;
+            padding: 1.25rem;
             font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
-        
+
         .faq-answer {
-            padding: 0 1.5rem 1.5rem;
+            padding: 0 1.25rem 1.25rem;
             color: var(--text-dim);
         }
+
+        /* Disclosure */
+        .disclosure-notice {
+            background: var(--surface-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, var(--surface), var(--surface-light));
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-box h3 { margin-bottom: 1rem; }
+        .cta-box p { color: var(--text-dim); margin-bottom: 1.5rem; }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.5rem; }
+        .footer-section a { color: var(--text-dim); font-size: 0.9rem; }
+        .footer-section a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            .header-content { flex-direction: column; gap: 1rem; }
+            nav ul { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .article-header { padding: 2rem 1rem; }
+            .article-header h1 { font-size: 1.75rem; }
+            .article-meta { flex-direction: column; gap: 0.5rem; }
+            .article-content { padding: 2rem 1rem; }
+        }
     </style>
-    
-    <!-- Schema.org structured data for rich snippets -->
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -230,183 +354,226 @@
             "@type": "MonetaryAmount",
             "currency": "USD",
             "value": "150-500"
-        },
-        "step": [
-            {
-                "@type": "HowToStep",
-                "name": "Check Electrical Panel Capacity",
-                "text": "Verify your panel has space for a 60A breaker and sufficient amperage"
-            },
-            {
-                "@type": "HowToStep",
-                "name": "Obtain Permits",
-                "text": "Contact local building department for electrical permit requirements"
-            },
-            {
-                "@type": "HowToStep",
-                "name": "Run Wiring",
-                "text": "Install appropriate gauge wire from panel to charger location"
-            },
-            {
-                "@type": "HowToStep",
-                "name": "Mount Wall Connector",
-                "text": "Secure the Wall Connector at proper height and connect wiring"
-            },
-            {
-                "@type": "HowToStep",
-                "name": "Configure and Test",
-                "text": "Set amperage via rotary dial and test charging functionality"
-            }
-        ]
+        }
     }
     </script>
 </head>
 <body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">⚡ <span>ChargeRight</span> Pro</a>
+            <nav>
+                <ul>
+                    <li><a href="/guides/">Guides</a></li>
+                    <li><a href="/guides/troubleshooting">Troubleshoot</a></li>
+                    <li><a href="/guides/home-installation">Install</a></li>
+                    <li><a href="/disclosure">Disclosure</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <article>
-        <header class="article-header">
+        <div class="article-header">
             <div class="article-header-content">
                 <nav class="breadcrumb">
-                    <a href="/">Home</a> › <a href="/guides/home-installation">Home Installation</a> › Tesla Wall Connector
+                    <a href="/">Home</a> → <a href="/guides/home-installation">Installation</a> → Tesla Wall Connector
                 </nav>
                 <h1>Tesla Wall Connector Gen 3: Complete DIY Installation Guide</h1>
                 <div class="article-meta">
-                    <span>📅 Updated January 2025</span>
+                    <span>📅 Updated February 2025</span>
                     <span>⏱️ 15 min read</span>
-                    <span>🔧 Intermediate Difficulty</span>
+                    <span>🔧 Intermediate</span>
                 </div>
             </div>
-        </header>
-        
-        <div class="article-body">
+        </div>
+
+        <div class="article-content">
             <p>The Tesla Wall Connector Gen 3 is the gold standard for home EV charging, delivering up to 44 miles of range per hour. This guide walks you through everything from electrical requirements to final testing—whether you're DIYing or want to understand what your electrician should be doing.</p>
-            
-            <p style="font-size: 0.85rem; color: #8B949E; font-style: italic;">Disclosure: This article contains affiliate links. We may earn a commission if you make a purchase, at no extra cost to you. <a href="/disclosure" style="color: #00D26A;">Learn more</a></p>
-            
+
+            <div class="disclosure-notice">
+                <strong>Affiliate Disclosure:</strong> This article contains affiliate links. We may earn a commission at no extra cost to you. <a href="/disclosure">Learn more</a>
+            </div>
+
             <div class="info-box">
                 <strong>💡 Quick Facts:</strong> The Gen 3 Wall Connector supports up to 48A charging, works with all Tesla models, and includes built-in WiFi for over-the-air updates. It's also compatible with other EVs via a J1772 adapter.
             </div>
-            
+
             <h2>Before You Start: Electrical Requirements</h2>
-            
-            <p>The Tesla Wall Connector is a hardwired EVSE (Electric Vehicle Supply Equipment) that requires a dedicated circuit. Here's what you need to verify before purchasing or installing:</p>
-            
+
+            <p>The Tesla Wall Connector is a hardwired EVSE that requires a dedicated circuit. Here's what you need to verify before purchasing or installing:</p>
+
             <h3>Panel Capacity Check</h3>
-            <p>Your electrical panel needs sufficient capacity to add a 60A circuit (for 48A charging) or at minimum a 50A circuit (for 40A charging). Open your panel and check:</p>
-            
+            <p>Your electrical panel needs sufficient capacity to add a 60A circuit (for 48A charging) or at minimum a 50A circuit (for 40A charging). Check your panel for:</p>
+
             <ul>
                 <li><strong>Available breaker slots:</strong> You need 2 adjacent slots for a double-pole breaker</li>
-                <li><strong>Total panel amperage:</strong> Most homes have 100A or 200A service. 200A panels handle EV charging easily; 100A panels may require a load calculation</li>
+                <li><strong>Total panel amperage:</strong> Most homes have 100A or 200A service. 200A handles EV charging easily; 100A may require a load calculation</li>
                 <li><strong>Current load:</strong> Add up existing breakers to estimate headroom</li>
             </ul>
-            
+
             <div class="warning-box">
-                <strong>⚠️ Important:</strong> If you have 100A service and central AC, electric water heater, or electric dryer, you may need a panel upgrade or load management device. Consider Tesla's Power Share feature for automatic load balancing.
+                <strong>⚠️ Important:</strong> If you have 100A service with central AC, electric water heater, or electric dryer, you may need a panel upgrade or load management device. Consider Tesla's Power Share feature for automatic load balancing.
             </div>
-            
+
             <h3>Wire Sizing Chart</h3>
-            <p>Wire gauge depends on circuit length and amperage. For a 48A Wall Connector (60A breaker):</p>
-            
-            <ul>
-                <li><strong>Up to 50 feet:</strong> 6 AWG copper</li>
-                <li><strong>50-100 feet:</strong> 4 AWG copper</li>
-                <li><strong>100-150 feet:</strong> 3 AWG copper</li>
-            </ul>
-            
-            <div class="tool-list">
-                <h4>🔧 Tools & Materials You'll Need</h4>
-                <ul>
-                    <li>Tesla Wall Connector Gen 3 <a href="https://www.amazon.com/dp/B07YX7KHBC?tag=chargerightpr-20" target="_blank" rel="nofollow sponsored" class="affiliate-link">Check Price on Amazon</a></li>
-                    <li>60A double-pole breaker (matching your panel brand)</li>
-                    <li>6 AWG or 4 AWG copper wire (based on run length)</li>
-                    <li>Conduit and fittings (if required by code)</li>
-                    <li>Wire strippers, screwdrivers, voltage tester</li>
-                    <li>Drill and masonry bits (for concrete/brick)</li>
-                </ul>
+
+            <table>
+                <tr>
+                    <th>Wire Run Length</th>
+                    <th>Wire Gauge (60A Circuit)</th>
+                </tr>
+                <tr>
+                    <td>Up to 50 feet</td>
+                    <td>6 AWG copper</td>
+                </tr>
+                <tr>
+                    <td>50-100 feet</td>
+                    <td>4 AWG copper</td>
+                </tr>
+                <tr>
+                    <td>100-150 feet</td>
+                    <td>3 AWG copper</td>
+                </tr>
+            </table>
+
+            <div class="product-box">
+                <h4>🔧 Recommended Products</h4>
+                <p style="margin: 1rem 0; color: var(--text-dim);">Quality charger and accessories for your installation:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+                    <a href="https://www.amazon.com/dp/B07WXZDHGV?tag=chargerightpr-20" target="_blank" rel="nofollow sponsored" class="btn btn-primary">ChargePoint Home Flex - $699</a>
+                </div>
             </div>
-            
+
             <h2>Step-by-Step Installation</h2>
-            
-            <h3><span class="step-number">1</span>Obtain Permits</h3>
-            <p>Most jurisdictions require an electrical permit for EV charger installation. Contact your local building department—permits typically cost $50-150 and ensure your work is inspected for safety.</p>
-            
-            <h3><span class="step-number">2</span>Plan the Wire Run</h3>
-            <p>Map the shortest path from your electrical panel to the charger location. Consider:</p>
-            <ul>
-                <li>Interior vs. exterior routing</li>
-                <li>Conduit requirements (often required for exposed runs)</li>
-                <li>Future serviceability</li>
-                <li>Mounting height: Tesla recommends 48" from floor to bottom of unit</li>
-            </ul>
-            
-            <h3><span class="step-number">3</span>Install the Circuit Breaker</h3>
-            <p>Turn off the main breaker and verify power is off with a voltage tester. Install the 60A double-pole breaker in your panel. Connect the hot wires (black and red) to the breaker terminals, neutral (white) to the neutral bar, and ground (green or bare) to the ground bar.</p>
-            
-            <h3><span class="step-number">4</span>Run the Wiring</h3>
-            <p>Pull the wire through conduit or along your planned route. Leave 18-24" of extra wire at both ends for connections. Secure conduit every 4 feet and within 12" of boxes.</p>
-            
-            <h3><span class="step-number">5</span>Mount the Wall Connector</h3>
-            <p>Use the included mounting bracket. The unit should be mounted on a solid surface—studs for drywall, or use appropriate anchors for masonry. Route wires through the back knockout or bottom entry point.</p>
-            
-            <h3><span class="step-number">6</span>Make Connections</h3>
-            <p>Inside the Wall Connector:</p>
-            <ul>
-                <li>Connect the two hot wires to L1 and L2 terminals</li>
-                <li>Connect ground wire to the ground terminal</li>
-                <li>Note: The Gen 3 Wall Connector does NOT require a neutral wire</li>
-            </ul>
-            
-            <h3><span class="step-number">7</span>Set Amperage</h3>
-            <p>The internal rotary dial sets the maximum charging current. Set it to match your breaker rating (position 8 for 60A breaker/48A charging, position 7 for 50A breaker/40A charging).</p>
-            
-            <h3><span class="step-number">8</span>Test and Commission</h3>
-            <p>Turn on the breaker. The Wall Connector LED should illuminate. Use the Tesla app to complete WiFi setup and verify connectivity. Plug in your vehicle to confirm charging initiates.</p>
-            
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Obtain Permits</h3>
+                    <p>Most jurisdictions require an electrical permit for EV charger installation. Contact your local building department—permits typically cost $50-150 and ensure your work is inspected for safety.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Plan the Wire Run</h3>
+                    <p>Map the shortest path from your electrical panel to the charger location. Consider interior vs. exterior routing, conduit requirements, and future serviceability. Tesla recommends mounting 48" from floor to bottom of unit.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Install the Circuit Breaker</h3>
+                    <p>Turn off the main breaker and verify power is off with a voltage tester. Install the 60A double-pole breaker in your panel. Connect hot wires to the breaker, neutral to the neutral bar, and ground to the ground bar.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Run the Wiring</h3>
+                    <p>Pull wire through conduit or along your planned route. Leave 18-24" of extra wire at both ends. Secure conduit every 4 feet and within 12" of boxes.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Mount the Wall Connector</h3>
+                    <p>Use the included mounting bracket on a solid surface—studs for drywall, or appropriate anchors for masonry. Route wires through the back knockout or bottom entry point.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <h3>Make Connections</h3>
+                    <p>Inside the Wall Connector, connect the two hot wires to L1 and L2 terminals, and ground wire to the ground terminal. Note: Gen 3 does NOT require a neutral wire.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">7</div>
+                <div class="step-content">
+                    <h3>Set Amperage & Test</h3>
+                    <p>Set the internal rotary dial to match your breaker rating. Turn on the breaker—the LED should illuminate. Use the Tesla app to complete WiFi setup and verify charging.</p>
+                </div>
+            </div>
+
             <h2>Common Installation Issues</h2>
-            
+
             <h3>LED Shows Red or No Light</h3>
             <p>Red indicates a fault. Check all wire connections are tight and correctly positioned. Verify the breaker is on and providing 240V between hots.</p>
-            
-            <h3>Vehicle Not Charging</h3>
-            <p>Ensure the Wall Connector is commissioned in the Tesla app. Check that the rotary dial setting matches your circuit capacity. Try a soft reset by turning off the breaker for 30 seconds.</p>
-            
+
             <h3>WiFi Connection Failed</h3>
-            <p>The Wall Connector supports 2.4GHz networks only. Ensure your router is within range or consider a WiFi extender. See our <a href="/article/charger-not-connecting">WiFi troubleshooting guide</a> for detailed fixes.</p>
-            
-            <div class="faq-section">
-                <h2>Frequently Asked Questions</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Can I install the Wall Connector myself?</div>
-                    <div class="faq-answer">Legally, it depends on your jurisdiction. Many areas allow homeowners to do their own electrical work with a permit and inspection. However, if you're not comfortable working in an electrical panel, hire a licensed electrician. The cost is typically $300-800 for labor.</div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Does the Wall Connector work with non-Tesla EVs?</div>
-                    <div class="faq-answer">Yes! With a Tesla to J1772 adapter, the Wall Connector can charge any EV that uses the J1772 standard (most non-Tesla EVs in North America). However, it won't charge at full speed—most J1772 vehicles cap at 32A.</div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">What's the difference between Gen 2 and Gen 3?</div>
-                    <div class="faq-answer">Gen 3 added WiFi connectivity, over-the-air updates, Power Share for load management, and doesn't require a neutral wire. It's also slightly more compact. If buying new, Gen 3 is the only option available.</div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Can I install this outdoors?</div>
-                    <div class="faq-answer">Yes, the Wall Connector is rated for outdoor installation (NEMA 3R equivalent). It operates in temperatures from -22°F to 122°F. However, the charging cable may become stiff in extreme cold.</div>
+            <p>The Wall Connector supports 2.4GHz networks only. Ensure your router is within range or consider a WiFi extender.</p>
+
+            <div class="product-box">
+                <h4>WiFi Connectivity Solutions</h4>
+                <p style="margin: 1rem 0; color: var(--text-dim);">Having trouble with WiFi in your garage? These help:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+                    <a href="https://www.amazon.com/dp/B07N1WW638?tag=chargerightpr-20" target="_blank" rel="nofollow sponsored" class="btn btn-primary">TP-Link WiFi Extender - $29</a>
+                    <a href="https://www.amazon.com/dp/B084CZMYNM?tag=chargerightpr-20" target="_blank" rel="nofollow sponsored" class="btn btn-primary">TP-Link Powerline Kit - $59</a>
                 </div>
             </div>
-            
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I install the Wall Connector myself?</div>
+                <div class="faq-answer">Legally, it depends on your jurisdiction. Many areas allow homeowners to do their own electrical work with a permit and inspection. If you're not comfortable working in an electrical panel, hire a licensed electrician—typically $300-800 for labor.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Does the Wall Connector work with non-Tesla EVs?</div>
+                <div class="faq-answer">Yes! With a Tesla to J1772 adapter, it can charge any EV using the J1772 standard. However, most J1772 vehicles cap at 32A.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I install this outdoors?</div>
+                <div class="faq-answer">Yes, the Wall Connector is rated for outdoor installation (NEMA 3R equivalent). It operates from -22°F to 122°F.</div>
+            </div>
+
             <div class="cta-box">
-                <h3>Need Help With Your Installation?</h3>
-                <p>Browse our complete library of EV charger installation guides, or use our electrician finder to get quotes from certified installers in your area.</p>
-                <a href="/guides/home-installation" class="btn">View All Installation Guides</a>
+                <h3>Need More Help?</h3>
+                <p>Browse our complete library of EV charger installation guides.</p>
+                <a href="/guides/home-installation" class="btn btn-primary">View All Installation Guides</a>
             </div>
-            
+
             <h2>Conclusion</h2>
-            <p>Installing a Tesla Wall Connector is a straightforward project for anyone comfortable with electrical work. The key is proper planning—verify your panel capacity, size your wire correctly, and pull permits where required. Once installed, you'll have the fastest, most reliable home charging solution available.</p>
-            
-            <p>Have questions about your specific situation? Drop a comment below or check our <a href="/guides/troubleshooting">troubleshooting section</a> for common issues and fixes.</p>
+            <p>Installing a Tesla Wall Connector is straightforward for anyone comfortable with electrical work. The key is proper planning—verify panel capacity, size wire correctly, and pull permits. Once installed, you'll have the fastest, most reliable home charging solution available.</p>
         </div>
     </article>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>⚡ ChargeRight Pro</h4>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Expert EV charging guides for home and business.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Guides</h4>
+                <ul>
+                    <li><a href="/guides/home-installation">Home Installation</a></li>
+                    <li><a href="/guides/troubleshooting">Troubleshooting</a></li>
+                    <li><a href="/guides/commercial">Commercial</a></li>
+                    <li><a href="/guides/maintenance">Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/disclosure">Affiliate Disclosure</a></li>
+                    <li><a href="/sitemap.xml">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 ChargeRight Pro. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

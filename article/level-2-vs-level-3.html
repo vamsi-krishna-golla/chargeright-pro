@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Level 2 vs Level 3 EV charging explained. Compare speeds, costs, and find out which charging level you actually need for your electric vehicle.">
+    <meta name="keywords" content="Level 2 vs Level 3 charging, DC fast charging, EV charging speeds, home EV charger levels">
     <title>Level 2 vs Level 3 Charging: What You Actually Need | ChargeRight Pro</title>
-    
+    <link rel="canonical" href="https://chargerightpro.com/article/level-2-vs-level-3">
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZMLSGHDJE"></script>
     <script>
@@ -14,225 +16,492 @@
       gtag('js', new Date());
       gtag('config', 'G-5ZMLSGHDJE');
     </script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary: #0D1117;
             --accent: #00D26A;
+            --accent-hover: #00B85C;
             --surface: #161B22;
             --surface-light: #21262D;
             --text: #E6EDF3;
             --text-dim: #8B949E;
-            --font-body: 'DM Sans', sans-serif;
-            --font-mono: 'Space Mono', monospace;
+            --border: #30363D;
+            --warning: #F0883E;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-body); background: var(--primary); color: var(--text); line-height: 1.8; }
-        header { padding: 1rem 2rem; background: rgba(13,17,23,0.95); border-bottom: 1px solid var(--surface-light); position: fixed; width: 100%; top: 0; z-index: 100; }
-        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: var(--font-mono); font-size: 1.4rem; font-weight: 700; color: var(--accent); text-decoration: none; }
-        .logo::before { content: "⚡"; margin-right: 0.5rem; }
-        .article-header { padding: 8rem 2rem 4rem; background: var(--surface); border-bottom: 1px solid var(--surface-light); }
-        .article-header-content { max-width: 800px; margin: 0 auto; }
-        .breadcrumb { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 2rem; }
-        .breadcrumb a { color: var(--accent); text-decoration: none; }
-        .article-header h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1.5rem; }
-        .article-meta { display: flex; gap: 2rem; color: var(--text-dim); font-size: 0.95rem; }
-        .article-body { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
-        .article-body h2 { font-size: 1.8rem; margin: 3rem 0 1.5rem; color: var(--accent); }
-        .article-body h3 { font-size: 1.4rem; margin: 2rem 0 1rem; }
-        .article-body p { margin-bottom: 1.5rem; }
-        .article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 2rem; }
-        .article-body li { margin-bottom: 0.75rem; }
-        table { width: 100%; border-collapse: collapse; margin: 2rem 0; }
-        th, td { padding: 1rem; text-align: left; border: 1px solid var(--surface-light); }
-        th { background: var(--surface); color: var(--accent); }
-        .info-box { background: var(--surface); border-left: 4px solid var(--accent); padding: 1.5rem; margin: 2rem 0; border-radius: 0 8px 8px 0; }
-        .cta-box { background: var(--surface); padding: 3rem; border-radius: 16px; text-align: center; margin: 4rem 0; }
-        .btn { display: inline-block; padding: 1rem 2rem; background: var(--accent); color: var(--primary); border-radius: 8px; text-decoration: none; font-weight: 600; }
-        footer { padding: 3rem 2rem; border-top: 1px solid var(--surface-light); text-align: center; color: var(--text-dim); }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); }
+
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo:hover { color: var(--text); }
+        .logo span { color: var(--accent); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-dim);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: var(--accent); }
+
+        .article-header {
+            background: var(--surface);
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .article-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a { color: var(--accent); }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .article-content h2 {
+            font-size: 1.75rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--accent);
+        }
+
+        .article-content h3 {
+            font-size: 1.35rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .article-content p { margin-bottom: 1.5rem; }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li { margin-bottom: 0.75rem; }
+
+        .info-box {
+            background: var(--surface);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background: rgba(240, 136, 62, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--surface);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--surface-light);
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        tr:last-child td { border-bottom: none; }
+
+        .comparison-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .comparison-card h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .comparison-card .speed {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 1rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            color: var(--primary);
+        }
+
+        .disclosure-notice {
+            background: var(--surface-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--surface), var(--surface-light));
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-box h3 { margin-bottom: 1rem; }
+        .cta-box p { color: var(--text-dim); margin-bottom: 1.5rem; }
+
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 { margin-bottom: 1rem; color: var(--text); }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.5rem; }
+        .footer-section a { color: var(--text-dim); font-size: 0.9rem; }
+        .footer-section a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            .header-content { flex-direction: column; gap: 1rem; }
+            nav ul { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .article-header { padding: 2rem 1rem; }
+            .article-header h1 { font-size: 1.75rem; }
+            .article-meta { flex-direction: column; gap: 0.5rem; }
+            .article-content { padding: 2rem 1rem; }
+        }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <a href="/" class="logo">ChargeRight Pro</a>
-        </nav>
+        <div class="header-content">
+            <a href="/" class="logo">⚡ <span>ChargeRight</span> Pro</a>
+            <nav>
+                <ul>
+                    <li><a href="/guides/">Guides</a></li>
+                    <li><a href="/guides/troubleshooting">Troubleshoot</a></li>
+                    <li><a href="/guides/home-installation">Install</a></li>
+                    <li><a href="/disclosure">Disclosure</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <article>
-        <header class="article-header">
+        <div class="article-header">
             <div class="article-header-content">
                 <nav class="breadcrumb">
-                    <a href="/">Home</a> › <a href="/guides">Guides</a> › Level 2 vs Level 3
+                    <a href="/">Home</a> → <a href="/guides/">Guides</a> → Level 2 vs Level 3
                 </nav>
                 <h1>Level 2 vs Level 3 Charging: What You Actually Need</h1>
                 <div class="article-meta">
-                    <span>📅 Updated January 2025</span>
+                    <span>📅 Updated February 2025</span>
                     <span>⏱️ 10 min read</span>
+                    <span>⚡ Charging Guide</span>
                 </div>
             </div>
-        </header>
+        </div>
 
-        <div class="article-body">
-            <p>The EV charging industry loves to confuse people with jargon. Level 1, Level 2, Level 3, DC Fast Charging, DCFC, Supercharging... it's a mess. This guide cuts through the noise and tells you exactly what you need to know.</p>
+        <div class="article-content">
+            <p>EV charging levels can be confusing. Marketing materials throw around terms like "fast charging" and "rapid charging" without explaining what they actually mean. This guide cuts through the hype and explains exactly what each level offers—and which one you really need.</p>
 
-            <h2>The Simple Summary</h2>
-            
+            <div class="disclosure-notice">
+                <strong>Affiliate Disclosure:</strong> This article contains affiliate links. We may earn a commission at no extra cost to you. <a href="/disclosure">Learn more</a>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 The Short Answer:</strong> For home charging, Level 2 is all you need. Level 3 (DC Fast Charging) is only available at public stations and is meant for road trips, not daily use.
+            </div>
+
+            <h2>The Three Charging Levels Explained</h2>
+
+            <div class="comparison-card">
+                <h3>⚡ Level 1 (120V AC)</h3>
+                <div class="speed">3-5 miles/hour</div>
+                <p><strong>What it is:</strong> Standard household outlet (the same one you plug your phone charger into)</p>
+                <ul>
+                    <li>No special installation needed</li>
+                    <li>Adds 3-5 miles of range per hour</li>
+                    <li>Full charge takes 24-48+ hours</li>
+                    <li>Best for: PHEVs or short daily commutes (&lt;30 miles)</li>
+                </ul>
+            </div>
+
+            <div class="comparison-card">
+                <h3>⚡⚡ Level 2 (240V AC)</h3>
+                <div class="speed">25-30 miles/hour</div>
+                <p><strong>What it is:</strong> Dedicated 240V circuit (same voltage as your dryer or oven)</p>
+                <ul>
+                    <li>Requires installation ($500-$2,500)</li>
+                    <li>Adds 25-30 miles of range per hour</li>
+                    <li>Full charge in 4-10 hours</li>
+                    <li>Best for: All EV owners for daily home charging</li>
+                </ul>
+            </div>
+
+            <div class="comparison-card">
+                <h3>⚡⚡⚡ Level 3 / DC Fast Charging</h3>
+                <div class="speed">100-200+ miles in 30 min</div>
+                <p><strong>What it is:</strong> High-powered DC charging at public stations</p>
+                <ul>
+                    <li>NOT available for home installation</li>
+                    <li>Costs $15,000-$100,000+ to install</li>
+                    <li>80% charge in 20-45 minutes</li>
+                    <li>Best for: Road trips and emergency charging</li>
+                </ul>
+            </div>
+
+            <h2>Side-by-Side Comparison</h2>
+
             <table>
                 <tr>
-                    <th>Level</th>
-                    <th>Voltage</th>
-                    <th>Speed</th>
-                    <th>Where You'll Find It</th>
+                    <th>Feature</th>
+                    <th>Level 1</th>
+                    <th>Level 2</th>
+                    <th>Level 3</th>
                 </tr>
                 <tr>
-                    <td><strong>Level 1</strong></td>
-                    <td>120V (standard outlet)</td>
-                    <td>3-5 miles/hour</td>
-                    <td>Your garage (included with EV)</td>
-                </tr>
-                <tr>
-                    <td><strong>Level 2</strong></td>
-                    <td>240V (dryer outlet)</td>
-                    <td>25-40 miles/hour</td>
-                    <td>Home install, workplaces, public</td>
-                </tr>
-                <tr>
-                    <td><strong>Level 3 / DC Fast</strong></td>
+                    <td>Voltage</td>
+                    <td>120V AC</td>
+                    <td>240V AC</td>
                     <td>400-900V DC</td>
-                    <td>150-350+ miles/hour</td>
-                    <td>Highway stations, Tesla Superchargers</td>
+                </tr>
+                <tr>
+                    <td>Power Output</td>
+                    <td>1.4 kW</td>
+                    <td>7-19 kW</td>
+                    <td>50-350 kW</td>
+                </tr>
+                <tr>
+                    <td>Miles per Hour</td>
+                    <td>3-5</td>
+                    <td>25-30</td>
+                    <td>180-1,000</td>
+                </tr>
+                <tr>
+                    <td>0-100% Time</td>
+                    <td>24-48 hours</td>
+                    <td>4-10 hours</td>
+                    <td>20-60 minutes</td>
+                </tr>
+                <tr>
+                    <td>Installation Cost</td>
+                    <td>$0</td>
+                    <td>$500-$2,500</td>
+                    <td>$15,000+</td>
+                </tr>
+                <tr>
+                    <td>Home Use</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>No</td>
                 </tr>
             </table>
 
-            <h2>Level 1 Charging: The Freebie</h2>
-            
-            <p>Every EV comes with a Level 1 charger. It plugs into any standard 120V household outlet. That's it—no installation required.</p>
-            
-            <h3>The Math</h3>
+            <h2>Why Level 2 is Perfect for Home</h2>
+
+            <p>Here's the math that matters: The average American drives 37 miles per day. A Level 2 charger adds 25-30 miles per hour. That means:</p>
+
             <ul>
-                <li>Charges at about 1.4 kW</li>
-                <li>Adds 3-5 miles of range per hour</li>
-                <li>Full charge (60 kWh battery): 40-50 hours</li>
-            </ul>
-            
-            <p><strong>Level 1 works for you if:</strong></p>
-            <ul>
-                <li>You drive less than 40 miles per day</li>
-                <li>Your car sits in the garage 10+ hours daily</li>
-                <li>You have access to workplace or public charging</li>
-            </ul>
-            
-            <p><strong>Level 1 doesn't work if:</strong></p>
-            <ul>
-                <li>You drive 50+ miles daily</li>
-                <li>You can't plug in every single night</li>
-                <li>You need flexibility for unexpected trips</li>
+                <li><strong>1.5 hours of charging</strong> replaces your average daily driving</li>
+                <li><strong>Overnight charging</strong> (8 hours) gives you 200+ miles—more than enough for any daily use</li>
+                <li><strong>You wake up to a "full tank"</strong> every morning without ever visiting a gas station</li>
             </ul>
 
-            <h2>Level 2 Charging: The Sweet Spot</h2>
-            
-            <p>Level 2 is what most EV owners install at home. It uses 240V power (same as your dryer or oven) and charges 5-8x faster than Level 1.</p>
-            
-            <h3>The Math</h3>
-            <ul>
-                <li>Charges at 7-19 kW (depending on your setup and car)</li>
-                <li>Adds 25-40 miles of range per hour</li>
-                <li>Full charge (60 kWh battery): 4-8 hours</li>
-            </ul>
-            
             <div class="info-box">
-                <strong>💡 Key Point:</strong> Most EVs max out at 32A or 48A for AC charging, regardless of what charger you buy. A 48A charger won't charge faster than a 32A charger if your car's onboard charger is limited to 32A.
-            </div>
-            
-            <p><strong>Level 2 installation costs:</strong> $500-$2,500 total (charger + electrician). See our <a href="/article/ev-charger-installation-cost">complete cost breakdown</a>.</p>
-            
-            <h3>Level 2 is Right for Most People</h3>
-            <p>If you're reading this guide, Level 2 is probably what you need. It gives you overnight charging capability, handles any daily driving, and provides peace of mind for unexpected trips.</p>
-
-            <h2>Level 3 / DC Fast Charging: Road Trip Mode</h2>
-            
-            <p>Level 3 charging—also called DC Fast Charging (DCFC)—bypasses your car's onboard charger and pumps DC power directly into the battery. It's fast, but it's not for daily use.</p>
-            
-            <h3>The Math</h3>
-            <ul>
-                <li>Charges at 50-350 kW</li>
-                <li>Adds 150-350+ miles per hour</li>
-                <li>20-80% charge: 15-45 minutes</li>
-            </ul>
-            
-            <h3>Why You Can't Install Level 3 at Home</h3>
-            <ul>
-                <li><strong>Power requirements:</strong> 50-350 kW requires industrial electrical service</li>
-                <li><strong>Cost:</strong> $50,000-$150,000+ for equipment alone</li>
-                <li><strong>Size:</strong> These are large, commercial units</li>
-            </ul>
-            
-            <p>Level 3 charging is for road trips and commercial use only. You'll find them at:</p>
-            <ul>
-                <li>Tesla Supercharger network</li>
-                <li>Electrify America stations</li>
-                <li>ChargePoint DC stations</li>
-                <li>Highway rest stops</li>
-            </ul>
-            
-            <div class="info-box">
-                <strong>⚠️ Battery Health Note:</strong> Frequent DC fast charging can accelerate battery degradation. For daily charging, Level 2 is better for your battery's long-term health.
+                <strong>The Gas Station Mindset:</strong> Many new EV owners think they need fast charging at home because they're used to filling up quickly at gas stations. But home charging is different—you plug in when you get home and unplug when you leave. Speed doesn't matter when you're sleeping.
             </div>
 
-            <h2>Which Level Do You Actually Need?</h2>
-            
-            <table>
-                <tr>
-                    <th>Your Situation</th>
-                    <th>Recommendation</th>
-                </tr>
-                <tr>
-                    <td>Drive &lt;40 miles/day, park 10+ hours</td>
-                    <td>Level 1 is fine—save your money</td>
-                </tr>
-                <tr>
-                    <td>Drive 40-100 miles/day</td>
-                    <td>Level 2 home charger (32-40A)</td>
-                </tr>
-                <tr>
-                    <td>Drive 100+ miles/day</td>
-                    <td>Level 2 home charger (48A) + DC fast access</td>
-                </tr>
-                <tr>
-                    <td>Can't install at home (apartment, rental)</td>
-                    <td>Find workplace/public Level 2, supplement with DC fast</td>
-                </tr>
-                <tr>
-                    <td>Road trips frequently</td>
-                    <td>Level 2 at home + plan routes around DC fast stations</td>
-                </tr>
-            </table>
+            <h2>When You Actually Need Level 3</h2>
 
-            <h2>The Bottom Line</h2>
-            
-            <p>For most EV owners, the answer is simple:</p>
+            <p>DC Fast Charging makes sense in specific situations:</p>
+
             <ul>
-                <li><strong>At home:</strong> Install a Level 2 charger (32-48A)</li>
-                <li><strong>On the road:</strong> Use DC fast charging when you need it</li>
-                <li><strong>Daily driving:</strong> Never worry about charging again</li>
+                <li><strong>Road trips:</strong> When you need to add 150+ miles quickly to continue your journey</li>
+                <li><strong>No home charging:</strong> Apartment dwellers who can't install a charger</li>
+                <li><strong>Commercial fleets:</strong> Taxis, delivery vehicles that need quick turnaround</li>
+                <li><strong>Emergency situations:</strong> When you miscalculated and need charge NOW</li>
             </ul>
-            
-            <p>Don't overthink it. Level 2 at home covers 99% of your charging needs, and the DC fast charging network handles the rest.</p>
+
+            <div class="warning-box">
+                <strong>⚠️ DC Fast Charging Drawbacks:</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>More expensive per kWh than home charging ($0.30-0.50 vs $0.10-0.15)</li>
+                    <li>Can degrade battery faster if used frequently</li>
+                    <li>Often requires waiting for an available charger</li>
+                    <li>Charges slower as battery fills (50-80% is fast, 80-100% is slow)</li>
+                </ul>
+            </div>
+
+            <h2>Choosing the Right Level 2 Charger</h2>
+
+            <p>For home use, you want a Level 2 charger with these features:</p>
+
+            <ul>
+                <li><strong>40A output minimum:</strong> Delivers ~30 miles of range per hour</li>
+                <li><strong>WiFi connectivity:</strong> For scheduling and monitoring (optional but nice)</li>
+                <li><strong>J1772 connector:</strong> Universal standard that works with all EVs (Tesla needs adapter)</li>
+                <li><strong>NEMA 4 rating:</strong> If installing outdoors</li>
+            </ul>
 
             <div class="cta-box">
-                <h3>Ready to Install Level 2?</h3>
-                <p>Check out our installation guides and cost breakdowns.</p>
-                <a href="/guides/home-installation" class="btn">View Installation Guides</a>
+                <h3>Ready to Install Level 2 at Home?</h3>
+                <p>Check out our installation cost guide and step-by-step instructions.</p>
+                <a href="/article/ev-charger-installation-cost" class="btn btn-primary">View Installation Cost Guide</a>
             </div>
+
+            <h2>Conclusion</h2>
+            <p>For 99% of EV owners, Level 2 home charging is the sweet spot. It's fast enough to fully charge overnight, affordable to install, and covers all your daily driving needs. Save Level 3 for road trips—that's what it's designed for. The best part? Home charging costs about 1/3 of public fast charging, so you'll save money every single day.</p>
         </div>
     </article>
 
     <footer>
-        <p>© 2025 ChargeRight Pro. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>⚡ ChargeRight Pro</h4>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Expert EV charging guides for home and business.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Guides</h4>
+                <ul>
+                    <li><a href="/guides/home-installation">Home Installation</a></li>
+                    <li><a href="/guides/troubleshooting">Troubleshooting</a></li>
+                    <li><a href="/guides/commercial">Commercial</a></li>
+                    <li><a href="/guides/maintenance">Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/disclosure">Affiliate Disclosure</a></li>
+                    <li><a href="/sitemap.xml">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 ChargeRight Pro. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>

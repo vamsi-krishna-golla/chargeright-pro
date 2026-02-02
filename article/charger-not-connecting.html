@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fix EV charger WiFi connection problems. Troubleshooting guide for ChargePoint, JuiceBox, Grizzl-E, Wallbox, and other smart chargers.">
+    <meta name="description" content="Fix EV charger WiFi connectivity issues. Troubleshooting guide for ChargePoint, JuiceBox, Tesla, and other smart chargers that won't connect to WiFi.">
+    <meta name="keywords" content="EV charger WiFi not working, ChargePoint won't connect, smart charger troubleshooting, EV charger connectivity issues">
     <title>EV Charger Won't Connect to WiFi? Complete Fix Guide | ChargeRight Pro</title>
     <link rel="canonical" href="https://chargerightpro.com/article/charger-not-connecting">
-    
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZMLSGHDJE"></script>
     <script>
@@ -15,233 +16,465 @@
       gtag('js', new Date());
       gtag('config', 'G-5ZMLSGHDJE');
     </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "TechArticle",
-        "headline": "EV Charger WiFi Connection Troubleshooting Guide",
-        "description": "Step-by-step solutions for smart EV charger connectivity issues",
-        "author": {"@type": "Organization", "name": "ChargeRight Pro"}
-    }
-    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0D1117;
+            --accent: #00D26A;
+            --accent-hover: #00B85C;
+            --surface: #161B22;
+            --surface-light: #21262D;
+            --text: #E6EDF3;
+            --text-dim: #8B949E;
+            --border: #30363D;
+            --warning: #F0883E;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); }
+
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo:hover { color: var(--text); }
+        .logo span { color: var(--accent); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-dim);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: var(--accent); }
+
+        .article-header {
+            background: var(--surface);
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .article-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a { color: var(--accent); }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .article-content h2 {
+            font-size: 1.75rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--accent);
+        }
+
+        .article-content h3 {
+            font-size: 1.35rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .article-content p { margin-bottom: 1.5rem; }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li { margin-bottom: 0.75rem; }
+
+        .info-box {
+            background: var(--surface);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background: rgba(240, 136, 62, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .success-box {
+            background: rgba(0, 210, 106, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .product-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .product-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            color: var(--primary);
+        }
+
+        .fix-step {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .fix-step h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .fix-step h4 .number {
+            background: var(--accent);
+            color: var(--primary);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .disclosure-notice {
+            background: var(--surface-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--surface), var(--surface-light));
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-box h3 { margin-bottom: 1rem; }
+        .cta-box p { color: var(--text-dim); margin-bottom: 1.5rem; }
+
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 { margin-bottom: 1rem; color: var(--text); }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.5rem; }
+        .footer-section a { color: var(--text-dim); font-size: 0.9rem; }
+        .footer-section a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            .header-content { flex-direction: column; gap: 1rem; }
+            nav ul { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .article-header { padding: 2rem 1rem; }
+            .article-header h1 { font-size: 1.75rem; }
+            .article-meta { flex-direction: column; gap: 0.5rem; }
+            .article-content { padding: 2rem 1rem; }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">⚡ <span>ChargeRight</span> Pro</a>
+            <nav>
+                <ul>
+                    <li><a href="/guides/">Guides</a></li>
+                    <li><a href="/guides/troubleshooting">Troubleshoot</a></li>
+                    <li><a href="/guides/home-installation">Install</a></li>
+                    <li><a href="/disclosure">Disclosure</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <article>
-        <h1>EV Charger Won't Connect to WiFi? Here's How to Fix It</h1>
-        
-        <p><strong>Updated January 2025</strong> | 12 min read</p>
-        
-        <p>Your smart EV charger promised app control, scheduling, and energy monitoring. Instead, you're staring at a blinking LED while the app shows "Device Offline." Sound familiar? This guide covers every WiFi connectivity issue we've seen across all major charger brands.</p>
-        
-        <p style="font-size: 0.85rem; color: #8B949E; font-style: italic;">Disclosure: This article contains affiliate links. We may earn a commission if you make a purchase, at no extra cost to you. <a href="/disclosure" style="color: #00D26A;">Learn more</a></p>
-        
-        <h2>Quick Diagnosis: What's Your Symptom?</h2>
-        
-        <ul>
-            <li><strong>Charger never connects during initial setup</strong> → Jump to <a href="#initial-setup">Initial Setup Issues</a></li>
-            <li><strong>Charger was working, now shows offline</strong> → Jump to <a href="#went-offline">Connection Dropped</a></li>
-            <li><strong>Intermittent connectivity (comes and goes)</strong> → Jump to <a href="#intermittent">Intermittent Issues</a></li>
-            <li><strong>App connects locally but not remotely</strong> → Jump to <a href="#remote">Remote Access Problems</a></li>
-        </ul>
-        
-        <h2 id="initial-setup">Initial Setup Won't Complete</h2>
-        
-        <p>If your charger has never successfully connected to WiFi, the issue is almost always one of these:</p>
-        
-        <h3>1. You're on a 5GHz Network</h3>
-        <p>This is the #1 cause of setup failures. Nearly all EV chargers only support 2.4GHz WiFi—they cannot see or connect to 5GHz networks. Modern routers often broadcast both under the same network name, and your phone connects to 5GHz while the charger can only see 2.4GHz.</p>
-        
-        <p><strong>The Fix:</strong></p>
-        <ul>
-            <li>Log into your router's admin panel (usually 192.168.1.1 or 192.168.0.1)</li>
-            <li>Separate your 2.4GHz and 5GHz networks with different names (e.g., "HomeWiFi" and "HomeWiFi-5G")</li>
-            <li>Connect your charger to the 2.4GHz network specifically</li>
-            <li>After setup, you can rename networks back if desired—the charger will remember the connection</li>
-        </ul>
-        
-        <h3>2. Special Characters in Network Name or Password</h3>
-        <p>Some chargers struggle with special characters in WiFi credentials. If your password contains characters like @, #, $, %, or spaces, try temporarily simplifying it during setup.</p>
-        
-        <h3>3. Hidden Networks</h3>
-        <p>If your SSID is hidden, you'll need to manually enter the network name during setup. Many charger apps handle this poorly. Consider temporarily unhiding your network for initial setup.</p>
-        
-        <h3>4. Distance from Router</h3>
-        <p>2.4GHz has good range, but garages often have interference from metal doors, concrete walls, and electrical equipment. During initial setup, bring a portable router or hotspot closer to verify it's not a range issue.</p>
-        
-        <h2 id="went-offline">Charger Was Working, Now Offline</h2>
-        
-        <p>If your charger connected successfully but now shows offline, try these in order:</p>
-        
-        <h3>Power Cycle Everything</h3>
-        <ol>
-            <li>Turn off the charger's circuit breaker</li>
-            <li>Wait 30 seconds</li>
-            <li>Restart your router (unplug for 30 seconds)</li>
-            <li>Wait for router to fully boot (2-3 minutes)</li>
-            <li>Turn charger breaker back on</li>
-            <li>Wait 5 minutes before checking the app</li>
-        </ol>
-        
-        <h3>Check for Router Changes</h3>
-        <p>Did any of these happen recently?</p>
-        <ul>
-            <li>Router firmware update</li>
-            <li>Changed WiFi password</li>
-            <li>New router or mesh system installed</li>
-            <li>ISP service change</li>
-            <li>Changed router channel or settings</li>
-        </ul>
-        
-        <p>If yes, you may need to reconfigure the charger's WiFi settings or run setup again.</p>
-        
-        <h3>Check Router's DHCP Lease</h3>
-        <p>Some routers assign new IP addresses when devices reconnect, which can confuse older charger firmware. In your router settings:</p>
-        <ul>
-            <li>Find your charger in the connected devices list</li>
-            <li>Set a DHCP reservation (static IP) for its MAC address</li>
-            <li>Power cycle the charger to pick up the new assignment</li>
-        </ul>
-        
-        <h3>Check for Manufacturer Server Outages</h3>
-        <p>Smart chargers rely on cloud servers. If the manufacturer is having issues, your charger will show offline even though it's connected to WiFi. Check:</p>
-        <ul>
-            <li>Manufacturer's status page or social media</li>
-            <li>Down Detector for the charger brand</li>
-            <li>Reddit communities for your charger (r/evcharging, r/electricvehicles)</li>
-        </ul>
-        
-        <h2 id="intermittent">Intermittent Connectivity</h2>
-        
-        <p>Connection that comes and goes is usually a signal strength or interference issue.</p>
-        
-        <h3>Improve Signal Strength</h3>
-        <ul>
-            <li><strong>WiFi Extender:</strong> Place one between your router and charger location. Ensure it's on 2.4GHz. <a href="https://www.amazon.com/dp/B07N1WW638?tag=chargerightpr-20" target="_blank" rel="nofollow sponsored">Recommended: TP-Link RE315 (Check Price)</a></li>
-            <li><strong>Powerline Adapter:</strong> Uses electrical wiring to extend network. Works well for garages. <a href="https://www.amazon.com/dp/B084CZMYNM?tag=chargerightpr-20" target="_blank" rel="nofollow sponsored">Recommended: TP-Link Powerline Kit (Check Price)</a></li>
-            <li><strong>Dedicated Access Point:</strong> Install a wired access point in or near the garage for best reliability</li>
-        </ul>
-        
-        <h3>Reduce Interference</h3>
-        <p>2.4GHz is crowded. Common interference sources:</p>
-        <ul>
-            <li>Microwave ovens (uses 2.4GHz)</li>
-            <li>Baby monitors</li>
-            <li>Bluetooth devices</li>
-            <li>Neighboring WiFi networks</li>
-            <li>Garage door openers</li>
-        </ul>
-        
-        <p>Try changing your router's 2.4GHz channel to 1, 6, or 11 (non-overlapping channels). Use a WiFi analyzer app to find the least congested channel in your area.</p>
-        
-        <h2 id="remote">Remote Access Not Working</h2>
-        
-        <p>If the charger works when you're home on the same WiFi but shows offline when you're away:</p>
-        
-        <h3>Check Cloud Connection</h3>
-        <p>The charger connects to the manufacturer's cloud servers, which then relay commands from your app. This requires:</p>
-        <ul>
-            <li>Outbound internet access from the charger</li>
-            <li>No firewall blocking the manufacturer's servers</li>
-            <li>Active subscription (some brands require it for remote access)</li>
-        </ul>
-        
-        <h3>Firewall and Router Settings</h3>
-        <p>Some router security features block IoT devices from reaching external servers:</p>
-        <ul>
-            <li>Disable "IoT device isolation" if enabled</li>
-            <li>Check that UPnP is enabled</li>
-            <li>Add the charger to any "trusted device" lists</li>
-            <li>Temporarily disable advanced firewall features to test</li>
-        </ul>
-        
-        <h2>Brand-Specific Troubleshooting</h2>
-        
-        <h3>ChargePoint Home Flex</h3>
-        <ul>
-            <li>LED blinking green: WiFi connected, charging available</li>
-            <li>LED solid blue: Connected to vehicle, charging</li>
-            <li>LED blinking orange: No WiFi connection</li>
-            <li>Reset WiFi: Hold the setup button for 10 seconds until LED flashes rapidly</li>
-        </ul>
-        
-        <h3>JuiceBox</h3>
-        <ul>
-            <li>Requires Enel X Way app (formerly JuiceNet)</li>
-            <li>Uses Bluetooth for initial setup—ensure phone Bluetooth is on</li>
-            <li>Factory reset: Hold button for 15+ seconds</li>
-            <li>Common issue: App shows "Offline" but charger still works locally</li>
-        </ul>
-        
-        <h3>Wallbox Pulsar Plus</h3>
-        <ul>
-            <li>Uses Bluetooth LE for setup</li>
-            <li>Ensure location permissions are granted to app</li>
-            <li>Create 2.4GHz-only network if dual-band issues persist</li>
-            <li>Reset: Turn off breaker, wait 30 seconds, turn on while holding the small reset button</li>
-        </ul>
-        
-        <h3>Grizzl-E</h3>
-        <ul>
-            <li>Classic version has no WiFi (by design)</li>
-            <li>Smart version uses proprietary app</li>
-            <li>Known issue: Firmware updates can break WiFi—check for latest OTA update</li>
-        </ul>
-        
-        <h3>Tesla Wall Connector</h3>
-        <ul>
-            <li>Uses Tesla app for WiFi setup</li>
-            <li>2.4GHz only</li>
-            <li>Commissioning must complete before WiFi works</li>
-            <li>Check rotary dial setting inside unit if LED shows errors</li>
-        </ul>
-        
-        <h2>When Nothing Works: Nuclear Options</h2>
-        
-        <h3>Full Factory Reset</h3>
-        <p>Each charger has a factory reset procedure that wipes all settings. Consult your manual, but it typically involves:</p>
-        <ol>
-            <li>Turning off power</li>
-            <li>Holding a button while powering on</li>
-            <li>Waiting for specific LED pattern</li>
-            <li>Running setup from scratch</li>
-        </ol>
-        
-        <h3>Firmware Recovery</h3>
-        <p>Some chargers support firmware recovery via USB or Bluetooth when WiFi is completely broken. Contact manufacturer support for instructions specific to your model.</p>
-        
-        <h3>Warranty Replacement</h3>
-        <p>If the WiFi module is truly defective, you may need a warranty replacement. Document all troubleshooting steps before contacting support—they'll ask about them.</p>
-        
-        <h2>Prevent Future Issues</h2>
-        
-        <ul>
-            <li><strong>Assign a static IP</strong> to your charger in router settings</li>
-            <li><strong>Keep firmware updated</strong> (most update automatically when connected)</li>
-            <li><strong>Use a dedicated IoT network</strong> if your router supports VLANs</li>
-            <li><strong>Invest in network stability</strong>—mesh systems or access points beat extenders for reliability</li>
-            <li><strong>Consider wired options</strong>—some commercial chargers support Ethernet, which eliminates WiFi issues entirely</li>
-        </ul>
-        
-        <h2>Still Stuck?</h2>
-        
-        <p>If you've tried everything here and still can't connect:</p>
-        <ol>
-            <li>Contact manufacturer support with your troubleshooting log</li>
-            <li>Post in the charger's community forum with specifics (charger model, router model, symptoms)</li>
-            <li>Consider whether you actually need WiFi—most chargers work perfectly for basic charging without connectivity</li>
-        </ol>
-        
-        <p>Have a fix that worked for you? Share it in the comments to help others.</p>
-        
-        <hr>
-        
-        <p><strong>Related Articles:</strong></p>
-        <ul>
-            <li><a href="/article/tesla-wall-connector-installation">Tesla Wall Connector Installation Guide</a></li>
-            <li><a href="/article/best-wifi-extenders-garage">Best WiFi Extenders for Garage Chargers</a></li>
-            <li><a href="/article/charger-error-codes">EV Charger Error Codes Explained</a></li>
-        </ul>
+        <div class="article-header">
+            <div class="article-header-content">
+                <nav class="breadcrumb">
+                    <a href="/">Home</a> → <a href="/guides/troubleshooting">Troubleshooting</a> → WiFi Issues
+                </nav>
+                <h1>EV Charger Won't Connect to WiFi? Here's the Fix</h1>
+                <div class="article-meta">
+                    <span>📅 Updated February 2025</span>
+                    <span>⏱️ 10 min read</span>
+                    <span>🔧 Easy-Moderate</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <p>WiFi connectivity issues are the #1 complaint with smart EV chargers. Whether you have a ChargePoint, JuiceBox, Tesla Wall Connector, or any other WiFi-enabled charger, this guide will help you diagnose and fix the problem.</p>
+
+            <div class="disclosure-notice">
+                <strong>Affiliate Disclosure:</strong> This article contains affiliate links. We may earn a commission at no extra cost to you. <a href="/disclosure">Learn more</a>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Quick Fix:</strong> 90% of WiFi issues are caused by either 5GHz networks (chargers need 2.4GHz), weak signal in the garage, or incorrect passwords. Start with these before deeper troubleshooting.
+            </div>
+
+            <h2>The Most Common Cause: 5GHz vs 2.4GHz</h2>
+
+            <p>Almost all EV chargers only support <strong>2.4GHz WiFi networks</strong>. If your router broadcasts both 2.4GHz and 5GHz on the same network name (SSID), your charger may be trying to connect to 5GHz and failing silently.</p>
+
+            <div class="fix-step">
+                <h4><span class="number">1</span> Check Your Network Frequency</h4>
+                <p>Log into your router's admin panel (usually 192.168.1.1 or 192.168.0.1) and look for wireless settings. You need to either:</p>
+                <ul>
+                    <li>Create a separate 2.4GHz-only network with a distinct name (e.g., "HomeWiFi_2.4")</li>
+                    <li>Temporarily disable 5GHz during charger setup</li>
+                    <li>Enable "Smart Connect" band steering to keep the same name but allow device selection</li>
+                </ul>
+            </div>
+
+            <h2>Weak WiFi Signal in Garage</h2>
+
+            <p>Garages are notorious WiFi dead zones. Concrete walls, metal garage doors, and distance from the router all contribute to weak signals. Your phone might show 2 bars, but that's often not enough for reliable charger connectivity.</p>
+
+            <div class="fix-step">
+                <h4><span class="number">2</span> Test Signal Strength</h4>
+                <p>Stand next to your charger with your phone. If you have less than 3 bars, or if the signal drops frequently, you need to extend your WiFi coverage.</p>
+            </div>
+
+            <div class="product-box">
+                <h4>🔧 Recommended Solutions for Weak WiFi</h4>
+                <p style="margin: 1rem 0; color: var(--text-dim);">These products solve most garage WiFi problems:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+                    <a href="https://www.amazon.com/dp/B07N1WW638?tag=chargerightpr-20" target="_blank" rel="nofollow sponsored" class="btn btn-primary">TP-Link WiFi Extender - $29</a>
+                    <a href="https://www.amazon.com/dp/B084CZMYNM?tag=chargerightpr-20" target="_blank" rel="nofollow sponsored" class="btn btn-primary">TP-Link Powerline Kit - $59</a>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-dim);"><strong>WiFi Extender:</strong> Best for garages with some signal. Amplifies existing coverage.</p>
+                <p style="font-size: 0.9rem; color: var(--text-dim);"><strong>Powerline Kit:</strong> Best for garages with no signal. Uses electrical wiring to create a wired connection, then broadcasts WiFi.</p>
+            </div>
+
+            <h2>Brand-Specific Troubleshooting</h2>
+
+            <h3>ChargePoint Home Flex</h3>
+            <ol>
+                <li>Press and hold the button on the charger for 10 seconds to reset WiFi</li>
+                <li>Open the ChargePoint app and go to Settings → WiFi Setup</li>
+                <li>Make sure you're connecting to 2.4GHz</li>
+                <li>If using special characters in password, try a simpler password temporarily</li>
+            </ol>
+
+            <h3>Tesla Wall Connector</h3>
+            <ol>
+                <li>Open the Tesla app → Wall Connector → WiFi Settings</li>
+                <li>Wall Connector only supports 2.4GHz WPA/WPA2 networks</li>
+                <li>Enterprise networks (WPA2-Enterprise) are not supported</li>
+                <li>Try power cycling by turning off the breaker for 30 seconds</li>
+            </ol>
+
+            <h3>JuiceBox</h3>
+            <ol>
+                <li>Press the button on the front panel until it enters pairing mode (LED flashing)</li>
+                <li>Connect to the JuiceBox's hotspot from your phone</li>
+                <li>Enter your home WiFi credentials (2.4GHz only)</li>
+                <li>Wait up to 2 minutes for connection to establish</li>
+            </ol>
+
+            <h2>Step-by-Step: Complete WiFi Reset</h2>
+
+            <p>If basic troubleshooting hasn't worked, try a complete reset:</p>
+
+            <div class="fix-step">
+                <h4><span class="number">1</span> Power Cycle Everything</h4>
+                <p>Turn off the charger's circuit breaker. Restart your router. Wait 2 minutes. Turn the charger back on.</p>
+            </div>
+
+            <div class="fix-step">
+                <h4><span class="number">2</span> Factory Reset the Charger</h4>
+                <p>Most chargers have a factory reset option—check your manual. This clears any corrupted network settings.</p>
+            </div>
+
+            <div class="fix-step">
+                <h4><span class="number">3</span> Create a Dedicated 2.4GHz Network</h4>
+                <p>In your router settings, create a separate network just for IoT devices. Name it something like "SmartHome_2.4" and make sure it's 2.4GHz only.</p>
+            </div>
+
+            <div class="fix-step">
+                <h4><span class="number">4</span> Reconnect with Simple Credentials</h4>
+                <p>Use a simple password without special characters. Once connected, you can change your main network password back.</p>
+            </div>
+
+            <div class="success-box">
+                <strong>✅ Success Indicators:</strong> Solid green/blue LED (varies by brand), app shows "Connected" status, charger appears in manufacturer's app/portal.
+            </div>
+
+            <h2>When WiFi Isn't Worth the Hassle</h2>
+
+            <p>Smart features are nice, but not essential. Your charger will still charge your car without WiFi—you just lose:</p>
+            <ul>
+                <li>Remote monitoring and notifications</li>
+                <li>Charging schedules (though many EVs have this built-in)</li>
+                <li>Energy usage tracking</li>
+                <li>Firmware updates</li>
+            </ul>
+
+            <p>If you've spent hours troubleshooting with no success, it may be worth accepting "dumb" operation or considering a charger with better connectivity options.</p>
+
+            <div class="cta-box">
+                <h3>Still Having Issues?</h3>
+                <p>Check our complete troubleshooting section for more solutions.</p>
+                <a href="/guides/troubleshooting" class="btn btn-primary">View All Troubleshooting Guides</a>
+            </div>
+
+            <h2>Conclusion</h2>
+            <p>Most EV charger WiFi issues come down to frequency compatibility (2.4GHz vs 5GHz) or signal strength. A $30 WiFi extender or $60 powerline adapter solves the majority of cases. If you've tried everything and it still won't connect, your charger will still work fine for basic charging—smart features are a convenience, not a necessity.</p>
+        </div>
     </article>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>⚡ ChargeRight Pro</h4>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Expert EV charging guides for home and business.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Guides</h4>
+                <ul>
+                    <li><a href="/guides/home-installation">Home Installation</a></li>
+                    <li><a href="/guides/troubleshooting">Troubleshooting</a></li>
+                    <li><a href="/guides/commercial">Commercial</a></li>
+                    <li><a href="/guides/maintenance">Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/disclosure">Affiliate Disclosure</a></li>
+                    <li><a href="/sitemap.xml">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 ChargeRight Pro. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

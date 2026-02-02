@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse all EV charging guides - installation, troubleshooting, commercial setup, and maintenance. Expert resources for home and business charging.">
+    <meta name="keywords" content="EV charging guides, electric vehicle charger installation, charging troubleshooting, EV maintenance">
+    <title>All EV Charging Guides | ChargeRight Pro</title>
+    <link rel="canonical" href="https://chargerightpro.com/guides/">
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZMLSGHDJE"></script>
     <script>
@@ -10,70 +16,294 @@
       gtag('js', new Date());
       gtag('config', 'G-5ZMLSGHDJE');
     </script>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Browse all EV charging guides - installation, troubleshooting, commercial, and maintenance.">
-    <title>All EV Charging Guides | ChargeRight Pro</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        :root { --primary: #0D1117; --accent: #00D26A; --surface: #161B22; --surface-light: #21262D; --text: #E6EDF3; --text-dim: #8B949E; --font-body: 'DM Sans', sans-serif; --font-mono: 'Space Mono', monospace; }
+        :root {
+            --primary: #0D1117;
+            --accent: #00D26A;
+            --accent-hover: #00B85C;
+            --surface: #161B22;
+            --surface-light: #21262D;
+            --text: #E6EDF3;
+            --text-dim: #8B949E;
+            --border: #30363D;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-body); background: var(--primary); color: var(--text); line-height: 1.7; }
-        header { padding: 1rem 2rem; background: rgba(13,17,23,0.95); border-bottom: 1px solid var(--surface-light); position: fixed; width: 100%; top: 0; z-index: 100; }
-        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: var(--font-mono); font-size: 1.4rem; font-weight: 700; color: var(--accent); text-decoration: none; }
-        .logo::before { content: "⚡"; margin-right: 0.5rem; }
-        .page-header { padding: 8rem 2rem 4rem; background: var(--surface); text-align: center; }
-        .page-header h1 { font-size: 2.8rem; margin-bottom: 1rem; }
-        .content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .category-card { background: var(--surface); border: 1px solid var(--surface-light); border-radius: 16px; padding: 2.5rem; text-align: center; text-decoration: none; color: inherit; transition: all 0.3s; }
-        .category-card:hover { transform: translateY(-4px); border-color: var(--accent); }
-        .category-icon { font-size: 3rem; margin-bottom: 1rem; }
-        .category-card h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .category-card p { color: var(--text-dim); }
-        footer { padding: 3rem 2rem; border-top: 1px solid var(--surface-light); text-align: center; color: var(--text-dim); }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); }
+
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo:hover { color: var(--text); }
+        .logo span { color: var(--accent); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-dim);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: var(--accent); }
+
+        .page-header {
+            background: var(--surface);
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .guide-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            display: block;
+        }
+
+        .guide-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .guide-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .guide-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .guide-card p {
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .guide-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .guide-card:hover .guide-link {
+            gap: 0.75rem;
+        }
+
+        .guide-count {
+            display: inline-block;
+            background: rgba(0, 210, 106, 0.1);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 { margin-bottom: 1rem; color: var(--text); }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.5rem; }
+        .footer-section a { color: var(--text-dim); font-size: 0.9rem; }
+        .footer-section a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            .header-content { flex-direction: column; gap: 1rem; }
+            nav ul { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .page-header { padding: 2rem 1rem; }
+            .page-header h1 { font-size: 2rem; }
+            main { padding: 2rem 1rem; }
+        }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <a href="/" class="logo">ChargeRight Pro</a>
-        </nav>
+        <div class="header-content">
+            <a href="/" class="logo">⚡ <span>ChargeRight</span> Pro</a>
+            <nav>
+                <ul>
+                    <li><a href="/guides/">Guides</a></li>
+                    <li><a href="/guides/troubleshooting">Troubleshoot</a></li>
+                    <li><a href="/guides/home-installation">Install</a></li>
+                    <li><a href="/disclosure">Disclosure</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section class="page-header">
-        <h1>All Guides</h1>
-    </section>
+    <div class="page-header">
+        <h1>EV Charging Guides</h1>
+        <p>Expert resources for installing, troubleshooting, and maintaining electric vehicle charging stations at home and business.</p>
+    </div>
 
-    <main class="content">
-        <div class="category-grid">
-            <a href="/guides/home-installation" class="category-card">
-                <div class="category-icon">🏠</div>
+    <main>
+        <div class="guides-grid">
+            <a href="/guides/home-installation" class="guide-card">
+                <div class="guide-icon">🏠</div>
+                <span class="guide-count">15+ Guides</span>
                 <h2>Home Installation</h2>
-                <p>Level 2 charger setup for your home</p>
+                <p>Complete guides for Level 1 and Level 2 home charger installation. Covers electrical requirements, permits, DIY vs professional install, and step-by-step setup.</p>
+                <span class="guide-link">Browse Guides →</span>
             </a>
-            <a href="/guides/troubleshooting" class="category-card">
-                <div class="category-icon">🔧</div>
+
+            <a href="/guides/troubleshooting" class="guide-card">
+                <div class="guide-icon">🔧</div>
+                <span class="guide-count">20+ Solutions</span>
                 <h2>Troubleshooting</h2>
-                <p>Fix common charger problems</p>
+                <p>Diagnose and fix common charging issues. Error codes, WiFi connectivity problems, charging failures, and hardware troubleshooting for all major brands.</p>
+                <span class="guide-link">Fix Issues →</span>
             </a>
-            <a href="/guides/commercial" class="category-card">
-                <div class="category-icon">🏢</div>
+
+            <a href="/guides/commercial" class="guide-card">
+                <div class="guide-icon">🏢</div>
+                <span class="guide-count">10+ Guides</span>
                 <h2>Commercial & Fleet</h2>
-                <p>Enterprise charging solutions</p>
+                <p>Enterprise charging infrastructure, OCPP integration, load management, multi-unit deployment, and business case analysis for workplace charging.</p>
+                <span class="guide-link">Learn More →</span>
             </a>
-            <a href="/guides/maintenance" class="category-card">
-                <div class="category-icon">🛡️</div>
+
+            <a href="/guides/maintenance" class="guide-card">
+                <div class="guide-icon">🛡️</div>
+                <span class="guide-count">8+ Guides</span>
                 <h2>Maintenance</h2>
-                <p>Keep your charger running</p>
+                <p>Keep your charging station running at peak performance. Cleaning procedures, firmware updates, cable care, and preventive maintenance schedules.</p>
+                <span class="guide-link">Maintain →</span>
             </a>
         </div>
     </main>
 
     <footer>
-        <p>© 2025 ChargeRight Pro. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>⚡ ChargeRight Pro</h4>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Expert EV charging guides for home and business.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Guides</h4>
+                <ul>
+                    <li><a href="/guides/home-installation">Home Installation</a></li>
+                    <li><a href="/guides/troubleshooting">Troubleshooting</a></li>
+                    <li><a href="/guides/commercial">Commercial</a></li>
+                    <li><a href="/guides/maintenance">Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Articles</h4>
+                <ul>
+                    <li><a href="/article/tesla-wall-connector-installation">Tesla Wall Connector</a></li>
+                    <li><a href="/article/ev-charger-installation-cost">Installation Costs</a></li>
+                    <li><a href="/article/charger-not-connecting">WiFi Troubleshooting</a></li>
+                    <li><a href="/article/level-2-vs-level-3">Level 2 vs Level 3</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/disclosure">Affiliate Disclosure</a></li>
+                    <li><a href="/sitemap.xml">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 ChargeRight Pro. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
