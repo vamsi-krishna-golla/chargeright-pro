@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fix EV charger WiFi connection problems. Troubleshooting guide for ChargePoint, JuiceBox, Grizzl-E, Wallbox, and other smart chargers.">
+    <title>EV Charger Won't Connect to WiFi? Complete Fix Guide | ChargeRight Pro</title>
+    <link rel="canonical" href="https://chargerightpro.com/article/charger-not-connecting">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZMLSGHDJE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5ZMLSGHDJE');
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "EV Charger WiFi Connection Troubleshooting Guide",
+        "description": "Step-by-step solutions for smart EV charger connectivity issues",
+        "author": {"@type": "Organization", "name": "ChargeRight Pro"}
+    }
+    </script>
+</head>
+<body>
+    <article>
+        <h1>EV Charger Won't Connect to WiFi? Here's How to Fix It</h1>
+        
+        <p><strong>Updated January 2025</strong> | 12 min read</p>
+        
+        <p>Your smart EV charger promised app control, scheduling, and energy monitoring. Instead, you're staring at a blinking LED while the app shows "Device Offline." Sound familiar? This guide covers every WiFi connectivity issue we've seen across all major charger brands.</p>
+        
+        <p style="font-size: 0.85rem; color: #8B949E; font-style: italic;">Disclosure: This article contains affiliate links. We may earn a commission if you make a purchase, at no extra cost to you. <a href="/disclosure" style="color: #00D26A;">Learn more</a></p>
+        
+        <h2>Quick Diagnosis: What's Your Symptom?</h2>
+        
+        <ul>
+            <li><strong>Charger never connects during initial setup</strong> → Jump to <a href="#initial-setup">Initial Setup Issues</a></li>
+            <li><strong>Charger was working, now shows offline</strong> → Jump to <a href="#went-offline">Connection Dropped</a></li>
+            <li><strong>Intermittent connectivity (comes and goes)</strong> → Jump to <a href="#intermittent">Intermittent Issues</a></li>
+            <li><strong>App connects locally but not remotely</strong> → Jump to <a href="#remote">Remote Access Problems</a></li>
+        </ul>
+        
+        <h2 id="initial-setup">Initial Setup Won't Complete</h2>
+        
+        <p>If your charger has never successfully connected to WiFi, the issue is almost always one of these:</p>
+        
+        <h3>1. You're on a 5GHz Network</h3>
+        <p>This is the #1 cause of setup failures. Nearly all EV chargers only support 2.4GHz WiFi—they cannot see or connect to 5GHz networks. Modern routers often broadcast both under the same network name, and your phone connects to 5GHz while the charger can only see 2.4GHz.</p>
+        
+        <p><strong>The Fix:</strong></p>
+        <ul>
+            <li>Log into your router's admin panel (usually 192.168.1.1 or 192.168.0.1)</li>
+            <li>Separate your 2.4GHz and 5GHz networks with different names (e.g., "HomeWiFi" and "HomeWiFi-5G")</li>
+            <li>Connect your charger to the 2.4GHz network specifically</li>
+            <li>After setup, you can rename networks back if desired—the charger will remember the connection</li>
+        </ul>
+        
+        <h3>2. Special Characters in Network Name or Password</h3>
+        <p>Some chargers struggle with special characters in WiFi credentials. If your password contains characters like @, #, $, %, or spaces, try temporarily simplifying it during setup.</p>
+        
+        <h3>3. Hidden Networks</h3>
+        <p>If your SSID is hidden, you'll need to manually enter the network name during setup. Many charger apps handle this poorly. Consider temporarily unhiding your network for initial setup.</p>
+        
+        <h3>4. Distance from Router</h3>
+        <p>2.4GHz has good range, but garages often have interference from metal doors, concrete walls, and electrical equipment. During initial setup, bring a portable router or hotspot closer to verify it's not a range issue.</p>
+        
+        <h2 id="went-offline">Charger Was Working, Now Offline</h2>
+        
+        <p>If your charger connected successfully but now shows offline, try these in order:</p>
+        
+        <h3>Power Cycle Everything</h3>
+        <ol>
+            <li>Turn off the charger's circuit breaker</li>
+            <li>Wait 30 seconds</li>
+            <li>Restart your router (unplug for 30 seconds)</li>
+            <li>Wait for router to fully boot (2-3 minutes)</li>
+            <li>Turn charger breaker back on</li>
+            <li>Wait 5 minutes before checking the app</li>
+        </ol>
+        
+        <h3>Check for Router Changes</h3>
+        <p>Did any of these happen recently?</p>
+        <ul>
+            <li>Router firmware update</li>
+            <li>Changed WiFi password</li>
+            <li>New router or mesh system installed</li>
+            <li>ISP service change</li>
+            <li>Changed router channel or settings</li>
+        </ul>
+        
+        <p>If yes, you may need to reconfigure the charger's WiFi settings or run setup again.</p>
+        
+        <h3>Check Router's DHCP Lease</h3>
+        <p>Some routers assign new IP addresses when devices reconnect, which can confuse older charger firmware. In your router settings:</p>
+        <ul>
+            <li>Find your charger in the connected devices list</li>
+            <li>Set a DHCP reservation (static IP) for its MAC address</li>
+            <li>Power cycle the charger to pick up the new assignment</li>
+        </ul>
+        
+        <h3>Check for Manufacturer Server Outages</h3>
+        <p>Smart chargers rely on cloud servers. If the manufacturer is having issues, your charger will show offline even though it's connected to WiFi. Check:</p>
+        <ul>
+            <li>Manufacturer's status page or social media</li>
+            <li>Down Detector for the charger brand</li>
+            <li>Reddit communities for your charger (r/evcharging, r/electricvehicles)</li>
+        </ul>
+        
+        <h2 id="intermittent">Intermittent Connectivity</h2>
+        
+        <p>Connection that comes and goes is usually a signal strength or interference issue.</p>
+        
+        <h3>Improve Signal Strength</h3>
+        <ul>
+            <li><strong>WiFi Extender:</strong> Place one between your router and charger location. Ensure it's on 2.4GHz. <a href="https://www.amazon.com/dp/B07N1WW638?tag=chargerightpr-20" target="_blank" rel="nofollow sponsored">Recommended: TP-Link RE315 (Check Price)</a></li>
+            <li><strong>Powerline Adapter:</strong> Uses electrical wiring to extend network. Works well for garages. <a href="https://www.amazon.com/dp/B084CZMYNM?tag=chargerightpr-20" target="_blank" rel="nofollow sponsored">Recommended: TP-Link Powerline Kit (Check Price)</a></li>
+            <li><strong>Dedicated Access Point:</strong> Install a wired access point in or near the garage for best reliability</li>
+        </ul>
+        
+        <h3>Reduce Interference</h3>
+        <p>2.4GHz is crowded. Common interference sources:</p>
+        <ul>
+            <li>Microwave ovens (uses 2.4GHz)</li>
+            <li>Baby monitors</li>
+            <li>Bluetooth devices</li>
+            <li>Neighboring WiFi networks</li>
+            <li>Garage door openers</li>
+        </ul>
+        
+        <p>Try changing your router's 2.4GHz channel to 1, 6, or 11 (non-overlapping channels). Use a WiFi analyzer app to find the least congested channel in your area.</p>
+        
+        <h2 id="remote">Remote Access Not Working</h2>
+        
+        <p>If the charger works when you're home on the same WiFi but shows offline when you're away:</p>
+        
+        <h3>Check Cloud Connection</h3>
+        <p>The charger connects to the manufacturer's cloud servers, which then relay commands from your app. This requires:</p>
+        <ul>
+            <li>Outbound internet access from the charger</li>
+            <li>No firewall blocking the manufacturer's servers</li>
+            <li>Active subscription (some brands require it for remote access)</li>
+        </ul>
+        
+        <h3>Firewall and Router Settings</h3>
+        <p>Some router security features block IoT devices from reaching external servers:</p>
+        <ul>
+            <li>Disable "IoT device isolation" if enabled</li>
+            <li>Check that UPnP is enabled</li>
+            <li>Add the charger to any "trusted device" lists</li>
+            <li>Temporarily disable advanced firewall features to test</li>
+        </ul>
+        
+        <h2>Brand-Specific Troubleshooting</h2>
+        
+        <h3>ChargePoint Home Flex</h3>
+        <ul>
+            <li>LED blinking green: WiFi connected, charging available</li>
+            <li>LED solid blue: Connected to vehicle, charging</li>
+            <li>LED blinking orange: No WiFi connection</li>
+            <li>Reset WiFi: Hold the setup button for 10 seconds until LED flashes rapidly</li>
+        </ul>
+        
+        <h3>JuiceBox</h3>
+        <ul>
+            <li>Requires Enel X Way app (formerly JuiceNet)</li>
+            <li>Uses Bluetooth for initial setup—ensure phone Bluetooth is on</li>
+            <li>Factory reset: Hold button for 15+ seconds</li>
+            <li>Common issue: App shows "Offline" but charger still works locally</li>
+        </ul>
+        
+        <h3>Wallbox Pulsar Plus</h3>
+        <ul>
+            <li>Uses Bluetooth LE for setup</li>
+            <li>Ensure location permissions are granted to app</li>
+            <li>Create 2.4GHz-only network if dual-band issues persist</li>
+            <li>Reset: Turn off breaker, wait 30 seconds, turn on while holding the small reset button</li>
+        </ul>
+        
+        <h3>Grizzl-E</h3>
+        <ul>
+            <li>Classic version has no WiFi (by design)</li>
+            <li>Smart version uses proprietary app</li>
+            <li>Known issue: Firmware updates can break WiFi—check for latest OTA update</li>
+        </ul>
+        
+        <h3>Tesla Wall Connector</h3>
+        <ul>
+            <li>Uses Tesla app for WiFi setup</li>
+            <li>2.4GHz only</li>
+            <li>Commissioning must complete before WiFi works</li>
+            <li>Check rotary dial setting inside unit if LED shows errors</li>
+        </ul>
+        
+        <h2>When Nothing Works: Nuclear Options</h2>
+        
+        <h3>Full Factory Reset</h3>
+        <p>Each charger has a factory reset procedure that wipes all settings. Consult your manual, but it typically involves:</p>
+        <ol>
+            <li>Turning off power</li>
+            <li>Holding a button while powering on</li>
+            <li>Waiting for specific LED pattern</li>
+            <li>Running setup from scratch</li>
+        </ol>
+        
+        <h3>Firmware Recovery</h3>
+        <p>Some chargers support firmware recovery via USB or Bluetooth when WiFi is completely broken. Contact manufacturer support for instructions specific to your model.</p>
+        
+        <h3>Warranty Replacement</h3>
+        <p>If the WiFi module is truly defective, you may need a warranty replacement. Document all troubleshooting steps before contacting support—they'll ask about them.</p>
+        
+        <h2>Prevent Future Issues</h2>
+        
+        <ul>
+            <li><strong>Assign a static IP</strong> to your charger in router settings</li>
+            <li><strong>Keep firmware updated</strong> (most update automatically when connected)</li>
+            <li><strong>Use a dedicated IoT network</strong> if your router supports VLANs</li>
+            <li><strong>Invest in network stability</strong>—mesh systems or access points beat extenders for reliability</li>
+            <li><strong>Consider wired options</strong>—some commercial chargers support Ethernet, which eliminates WiFi issues entirely</li>
+        </ul>
+        
+        <h2>Still Stuck?</h2>
+        
+        <p>If you've tried everything here and still can't connect:</p>
+        <ol>
+            <li>Contact manufacturer support with your troubleshooting log</li>
+            <li>Post in the charger's community forum with specifics (charger model, router model, symptoms)</li>
+            <li>Consider whether you actually need WiFi—most chargers work perfectly for basic charging without connectivity</li>
+        </ol>
+        
+        <p>Have a fix that worked for you? Share it in the comments to help others.</p>
+        
+        <hr>
+        
+        <p><strong>Related Articles:</strong></p>
+        <ul>
+            <li><a href="/article/tesla-wall-connector-installation">Tesla Wall Connector Installation Guide</a></li>
+            <li><a href="/article/best-wifi-extenders-garage">Best WiFi Extenders for Garage Chargers</a></li>
+            <li><a href="/article/charger-error-codes">EV Charger Error Codes Explained</a></li>
+        </ul>
+    </article>
+</body>
+</html>

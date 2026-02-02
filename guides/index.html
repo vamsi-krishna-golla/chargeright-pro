@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZMLSGHDJE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5ZMLSGHDJE');
+    </script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse all EV charging guides - installation, troubleshooting, commercial, and maintenance.">
+    <title>All EV Charging Guides | ChargeRight Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #0D1117; --accent: #00D26A; --surface: #161B22; --surface-light: #21262D; --text: #E6EDF3; --text-dim: #8B949E; --font-body: 'DM Sans', sans-serif; --font-mono: 'Space Mono', monospace; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background: var(--primary); color: var(--text); line-height: 1.7; }
+        header { padding: 1rem 2rem; background: rgba(13,17,23,0.95); border-bottom: 1px solid var(--surface-light); position: fixed; width: 100%; top: 0; z-index: 100; }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-mono); font-size: 1.4rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+        .logo::before { content: "⚡"; margin-right: 0.5rem; }
+        .page-header { padding: 8rem 2rem 4rem; background: var(--surface); text-align: center; }
+        .page-header h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+        .content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .category-card { background: var(--surface); border: 1px solid var(--surface-light); border-radius: 16px; padding: 2.5rem; text-align: center; text-decoration: none; color: inherit; transition: all 0.3s; }
+        .category-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+        .category-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .category-card h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .category-card p { color: var(--text-dim); }
+        footer { padding: 3rem 2rem; border-top: 1px solid var(--surface-light); text-align: center; color: var(--text-dim); }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">ChargeRight Pro</a>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>All Guides</h1>
+    </section>
+
+    <main class="content">
+        <div class="category-grid">
+            <a href="/guides/home-installation" class="category-card">
+                <div class="category-icon">🏠</div>
+                <h2>Home Installation</h2>
+                <p>Level 2 charger setup for your home</p>
+            </a>
+            <a href="/guides/troubleshooting" class="category-card">
+                <div class="category-icon">🔧</div>
+                <h2>Troubleshooting</h2>
+                <p>Fix common charger problems</p>
+            </a>
+            <a href="/guides/commercial" class="category-card">
+                <div class="category-icon">🏢</div>
+                <h2>Commercial & Fleet</h2>
+                <p>Enterprise charging solutions</p>
+            </a>
+            <a href="/guides/maintenance" class="category-card">
+                <div class="category-icon">🛡️</div>
+                <h2>Maintenance</h2>
+                <p>Keep your charger running</p>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 ChargeRight Pro. All rights reserved.</p>
+    </footer>
+</body>
+</html>
