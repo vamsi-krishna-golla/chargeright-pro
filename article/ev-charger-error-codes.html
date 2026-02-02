@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete guide to EV charger error codes. Decode and fix errors from Tesla, ChargePoint, JuiceBox, ClipperCreek, and other popular EV charging stations.">
+    <meta name="keywords" content="EV charger error codes, Tesla charger error, ChargePoint error codes, EV charging problems, Level 2 charger troubleshooting">
+    <title>EV Charger Error Codes: Complete Troubleshooting Guide | ChargeRight Pro</title>
+    <link rel="canonical" href="https://chargerightpro.com/article/ev-charger-error-codes">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZMLSGHDJE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5ZMLSGHDJE');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0D1117;
+            --accent: #00D26A;
+            --surface: #161B22;
+            --surface-light: #21262D;
+            --text: #E6EDF3;
+            --text-dim: #8B949E;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .article-header {
+            padding: 8rem 2rem 4rem;
+            background: var(--surface);
+            border-bottom: 1px solid var(--surface-light);
+        }
+
+        .article-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .article-header h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        .article-body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--accent);
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+        }
+
+        .article-body li {
+            margin-bottom: 0.75rem;
+        }
+
+        .info-box {
+            background: var(--surface);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background: rgba(240, 136, 62, 0.1);
+            border-left: 4px solid #F0883E;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .error-code-box {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #F0883E;
+        }
+
+        .error-code-box h4 {
+            color: #F0883E;
+            font-family: var(--font-mono);
+            margin-bottom: 0.5rem;
+        }
+
+        .error-code-box .cause {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .error-code-box .fix {
+            background: var(--surface-light);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .error-code-box .fix h5 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .toc {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .toc h4 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .toc ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .toc a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            color: var(--accent);
+        }
+
+        .brand-section {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .brand-section h3 {
+            color: var(--accent);
+            margin-top: 0;
+            border-bottom: 1px solid var(--surface-light);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .affiliate-link {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0.5rem 0;
+            transition: opacity 0.2s;
+        }
+
+        .affiliate-link:hover {
+            opacity: 0.9;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--surface), var(--surface-light));
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-box h3 {
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .quick-fix {
+            background: rgba(0, 210, 106, 0.1);
+            border: 1px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .quick-fix h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .faq-section {
+            margin: 3rem 0;
+        }
+
+        .faq-item {
+            background: var(--surface);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-dim);
+        }
+
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2rem;
+            }
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "name": "EV Charger Error Codes Guide",
+        "description": "Complete troubleshooting guide for EV charger error codes from all major brands",
+        "author": {
+            "@type": "Organization",
+            "name": "ChargeRight Pro"
+        }
+    }
+    </script>
+</head>
+<body>
+    <article>
+        <header class="article-header">
+            <div class="article-header-content">
+                <nav class="breadcrumb">
+                    <a href="/">Home</a> › <a href="/guides/troubleshooting">Troubleshooting</a> › Error Codes
+                </nav>
+                <h1>EV Charger Error Codes: Complete Troubleshooting Guide</h1>
+                <div class="article-meta">
+                    <span>Updated February 2025</span>
+                    <span>20 min read</span>
+                    <span>Troubleshooting Guide</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="article-body">
+            <p>When your EV charger displays an error code or refuses to charge, it can be frustrating. This comprehensive guide covers error codes from all major EV charger brands and provides step-by-step solutions to get you back to charging.</p>
+
+            <p style="font-size: 0.85rem; color: #8B949E; font-style: italic;">Disclosure: This article contains affiliate links. We may earn a commission if you make a purchase, at no extra cost to you. <a href="/disclosure" style="color: #00D26A;">Learn more</a></p>
+
+            <div class="quick-fix">
+                <h4>Universal Quick Fixes</h4>
+                <p>Before diving into specific error codes, try these steps—they resolve 80% of charging issues:</p>
+                <ol>
+                    <li><strong>Power cycle the charger:</strong> Turn off the breaker for 30 seconds, then back on</li>
+                    <li><strong>Unplug and replug:</strong> Disconnect from vehicle, wait 10 seconds, reconnect firmly</li>
+                    <li><strong>Check the vehicle:</strong> Ensure the car is unlocked and in "Park"</li>
+                    <li><strong>Inspect the connector:</strong> Look for debris, moisture, or damaged pins</li>
+                    <li><strong>Restart the vehicle:</strong> Some EVs need a reboot to clear charging faults</li>
+                </ol>
+            </div>
+
+            <div class="toc">
+                <h4>Jump to Your Charger Brand</h4>
+                <ul>
+                    <li><a href="#tesla">Tesla Wall Connector Errors</a></li>
+                    <li><a href="#chargepoint">ChargePoint Home Flex Errors</a></li>
+                    <li><a href="#juicebox">JuiceBox Errors</a></li>
+                    <li><a href="#clippercreek">ClipperCreek Errors</a></li>
+                    <li><a href="#grizzle">Grizzl-E Errors</a></li>
+                    <li><a href="#vehicle">Vehicle-Side Error Codes</a></li>
+                    <li><a href="#generic">Generic J1772 Errors</a></li>
+                </ul>
+            </div>
+
+            <h2 id="tesla">Tesla Wall Connector Error Codes</h2>
+
+            <p>Tesla Wall Connectors use LED color codes to indicate status and errors. Here's what each pattern means:</p>
+
+            <div class="brand-section">
+                <h3>Tesla Wall Connector LED Codes</h3>
+
+                <div class="error-code-box">
+                    <h4>Solid Red</h4>
+                    <div class="cause">Ground fault detected. The charger has detected a ground fault condition that could indicate a safety hazard.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Turn off the breaker and wait 30 seconds</li>
+                            <li>Check all wiring connections at the Wall Connector</li>
+                            <li>Inspect the vehicle's charge port for moisture or debris</li>
+                            <li>If outdoor installation, check for water intrusion</li>
+                            <li>If error persists, the GFCI circuit inside may be faulty—contact Tesla or an electrician</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>Blinking Red (1 blink)</h4>
+                    <div class="cause">High temperature detected. The charger or vehicle is too hot to charge safely.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Wait for the charger and vehicle to cool down</li>
+                            <li>Ensure adequate ventilation around the Wall Connector</li>
+                            <li>If direct sunlight exposure, consider a shade or relocating the unit</li>
+                            <li>Check that wire gauge matches the installation distance (undersized wire causes heat)</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>Blinking Red (2 blinks)</h4>
+                    <div class="cause">Wall Connector cannot communicate with the vehicle.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Unplug, wait 10 seconds, and reconnect the charging cable</li>
+                            <li>Clean the connector pins and vehicle charge port</li>
+                            <li>Try a different vehicle if possible to isolate the issue</li>
+                            <li>Restart the vehicle's infotainment system</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>Blinking Red (3 blinks)</h4>
+                    <div class="cause">Relay test failure. Internal component fault.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Power cycle the Wall Connector (breaker off/on)</li>
+                            <li>If persists, the internal relay may need replacement</li>
+                            <li>Contact Tesla for warranty service or replacement</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>Blinking Red (4 blinks)</h4>
+                    <div class="cause">No ground connection detected.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Turn off the breaker</li>
+                            <li>Check the ground wire connection at the Wall Connector</li>
+                            <li>Verify ground connection at the electrical panel</li>
+                            <li>Use a multimeter to verify continuity to ground</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>Blinking Red (5 blinks)</h4>
+                    <div class="cause">Power sharing communication error (for multi-unit installations).</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Check the power sharing cable connections between units</li>
+                            <li>Verify all Wall Connectors are on the same firmware version</li>
+                            <li>Reset all units by turning off breakers simultaneously</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>Blinking Red (6 blinks)</h4>
+                    <div class="cause">Excessive voltage. Input voltage is too high.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Use a multimeter to check voltage at the Wall Connector (should be 220-240V)</li>
+                            <li>Contact your utility if voltage exceeds 250V consistently</li>
+                            <li>The Wall Connector protects itself from overvoltage—this is a power quality issue</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="chargepoint">ChargePoint Home Flex Error Codes</h2>
+
+            <p>ChargePoint uses a combination of LED colors and app notifications. The light ring around the unit provides visual feedback.</p>
+
+            <div class="brand-section">
+                <h3>ChargePoint Home Flex Status Lights</h3>
+
+                <div class="error-code-box">
+                    <h4>Solid Red Ring</h4>
+                    <div class="cause">Fault condition. Ground fault, stuck relay, or other hardware issue.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Check the ChargePoint app for a specific error message</li>
+                            <li>Power cycle the unit (breaker off 30 seconds, then on)</li>
+                            <li>Inspect connections at the terminal block inside the unit</li>
+                            <li>If the app shows "Ground Fault," check for moisture in the charge port</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>Blinking Yellow/Amber</h4>
+                    <div class="cause">WiFi disconnected or firmware update in progress.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>If updating, wait for completion (up to 30 minutes)</li>
+                            <li>Check your WiFi network is operational</li>
+                            <li>Move closer to the router or add a WiFi extender</li>
+                            <li>Re-pair the charger in the app if needed</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>App: "Charging Interrupted"</h4>
+                    <div class="cause">The vehicle stopped the charging session unexpectedly.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Check if the vehicle reached its charge limit</li>
+                            <li>Verify the vehicle's scheduled charging settings aren't interfering</li>
+                            <li>Look for error messages on the vehicle's screen</li>
+                            <li>Ensure the charge port latch is engaging properly</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>App: "Unable to Communicate"</h4>
+                    <div class="cause">The charger lost connection to the vehicle mid-session.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Disconnect and firmly reconnect the charging cable</li>
+                            <li>Clean connector pins with a dry cloth</li>
+                            <li>Check for damaged pins on the J1772 connector</li>
+                            <li>Try a different amperage setting in the app</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="juicebox">JuiceBox Error Codes</h2>
+
+            <p>JuiceBox chargers display status on the front LED panel and send notifications through the JuiceNet app.</p>
+
+            <div class="brand-section">
+                <h3>JuiceBox LED Panel Indicators</h3>
+
+                <div class="error-code-box">
+                    <h4>Red "FAULT" Display</h4>
+                    <div class="cause">General fault condition detected.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Note any error code number displayed</li>
+                            <li>Power cycle the unit</li>
+                            <li>Check the JuiceNet app for detailed fault information</li>
+                            <li>Ensure the charging connector is fully seated in your vehicle</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>Fault Code: E01</h4>
+                    <div class="cause">Ground fault detected.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Inspect the vehicle charge port for moisture or debris</li>
+                            <li>Check the connector for visible damage</li>
+                            <li>If installed outdoors, check for water intrusion</li>
+                            <li>Power cycle and attempt to charge again</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>Fault Code: E02</h4>
+                    <div class="cause">Stuck relay or contactor failure.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Turn off the breaker for 2 minutes, then back on</li>
+                            <li>Listen for a clicking sound when the charger powers up</li>
+                            <li>If no click or error persists, internal components may need service</li>
+                            <li>Contact Enel X Way support for warranty evaluation</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>Fault Code: E07</h4>
+                    <div class="cause">Over-temperature condition.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Allow the unit to cool down before retrying</li>
+                            <li>Ensure adequate ventilation around the charger</li>
+                            <li>If in direct sunlight, consider a shade solution</li>
+                            <li>Check wire gauge—undersized wiring causes excess heat</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>No WiFi Icon / Blinking</h4>
+                    <div class="cause">WiFi connection lost or never established.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Ensure your router is broadcasting 2.4GHz (JuiceBox doesn't support 5GHz)</li>
+                            <li>Move the charger closer to the router during setup</li>
+                            <li>Factory reset the WiFi settings and re-pair in the app</li>
+                            <li>Consider a WiFi range extender for garage installations</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="clippercreek">ClipperCreek Error Codes</h2>
+
+            <p>ClipperCreek chargers use simple LED indicators without smart connectivity.</p>
+
+            <div class="brand-section">
+                <h3>ClipperCreek HCS/LCS Series LED Codes</h3>
+
+                <div class="error-code-box">
+                    <h4>Red LED (Solid)</h4>
+                    <div class="cause">Ground fault or internal fault detected.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Disconnect the vehicle and power cycle the charger</li>
+                            <li>Inspect the connector and vehicle port for damage or moisture</li>
+                            <li>If outdoor installed, check for water intrusion in the unit</li>
+                            <li>Contact ClipperCreek support if error persists</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>Flashing Red/Green Alternating</h4>
+                    <div class="cause">Ventilation required—vehicle is requesting ventilated charging area.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>This is rare with modern EVs (mostly affects older LEAFs)</li>
+                            <li>Ensure the charging area has adequate ventilation</li>
+                            <li>Check if your vehicle has a ventilation requirement setting</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>No LED Illumination</h4>
+                    <div class="cause">No power to unit or internal failure.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Verify the circuit breaker is on</li>
+                            <li>Check for voltage at the unit with a multimeter</li>
+                            <li>Inspect wire connections inside the unit</li>
+                            <li>If power is present but no LED, the unit likely needs replacement</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="grizzle">Grizzl-E Error Codes</h2>
+
+            <p>Grizzl-E chargers use a multi-color LED to indicate status.</p>
+
+            <div class="brand-section">
+                <h3>Grizzl-E LED Indicators</h3>
+
+                <div class="error-code-box">
+                    <h4>Red LED</h4>
+                    <div class="cause">Error or fault condition.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Power cycle the unit (30-second breaker off/on)</li>
+                            <li>Disconnect and reconnect the vehicle</li>
+                            <li>Check the connector for debris or damage</li>
+                            <li>Grizzl-E is known for reliability—persistent red LED may indicate internal failure</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>Blinking Yellow/Amber</h4>
+                    <div class="cause">Waiting for vehicle or connection issue.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Ensure the vehicle is unlocked and ready to charge</li>
+                            <li>Firmly seat the connector in the vehicle port</li>
+                            <li>Check if the vehicle has scheduled charging enabled</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="vehicle">Vehicle-Side Error Codes</h2>
+
+            <p>Sometimes the issue is with your EV, not the charger. Here are common vehicle charging errors:</p>
+
+            <div class="brand-section">
+                <h3>Common Vehicle Charging Errors</h3>
+
+                <div class="error-code-box">
+                    <h4>"Unable to Charge" / "Charge Port Error"</h4>
+                    <div class="cause">The vehicle's charge port or onboard charger detected an issue.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Inspect the charge port for debris, ice, or physical damage</li>
+                            <li>Try a different charging station to isolate the issue</li>
+                            <li>Check if the charge port door is fully open</li>
+                            <li>Restart the vehicle and try again</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>"Charging Stopped - See Manual"</h4>
+                    <div class="cause">The vehicle's battery management system stopped charging.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Check if battery is too hot or too cold (wait for temperature to normalize)</li>
+                            <li>Verify you haven't reached a charge limit setting</li>
+                            <li>Look for specific diagnostic codes in the vehicle's settings</li>
+                            <li>If recurring, schedule a service appointment</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="error-code-box">
+                    <h4>"12V Battery Low"</h4>
+                    <div class="cause">The 12V auxiliary battery is depleted, preventing charging.</div>
+                    <div class="fix">
+                        <h5>How to Fix:</h5>
+                        <ol>
+                            <li>Jump-start the 12V battery using another vehicle or jump pack</li>
+                            <li>Once the vehicle is "awake," charging should work normally</li>
+                            <li>Consider replacing the 12V battery if this recurs</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="generic">Generic J1772 Error Handling</h2>
+
+            <p>All Level 2 chargers use the J1772 standard, which has built-in fault detection. Here are universal troubleshooting steps:</p>
+
+            <div class="info-box">
+                <strong>J1772 Communication Basics:</strong> The J1772 connector uses a pilot signal to communicate between charger and vehicle. Issues with this signal cause most "unable to charge" errors. The pilot wire is the small pin in the connector.
+            </div>
+
+            <h3>Universal Troubleshooting Steps</h3>
+
+            <ol>
+                <li><strong>Clean the connector:</strong> Use a dry cloth to clean the J1772 pins. Never use water or solvents.</li>
+                <li><strong>Inspect for damage:</strong> Look for bent pins, cracks, or burn marks on the connector.</li>
+                <li><strong>Check the latch:</strong> The connector should click firmly into place. A loose connection causes errors.</li>
+                <li><strong>Try a different vehicle:</strong> This isolates whether the issue is charger or vehicle-side.</li>
+                <li><strong>Check power supply:</strong> Use a multimeter to verify 240V at the charger.</li>
+                <li><strong>Reduce amperage:</strong> If your charger allows, try a lower amperage setting.</li>
+                <li><strong>Factory reset:</strong> Many smart chargers have a reset procedure—check your manual.</li>
+            </ol>
+
+            <div class="warning-box">
+                <strong>When to Call a Professional:</strong> Contact an electrician if you see burning or melting, smell electrical burning, experience tripped breakers repeatedly, or measure incorrect voltage. These indicate potentially dangerous wiring issues.
+            </div>
+
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">Why does my EV charger keep tripping the breaker?</div>
+                    <div class="faq-answer">Breaker trips usually indicate: (1) undersized breaker for the load—ensure you have the correct size per charger specs, (2) loose connections creating heat, (3) a faulty breaker that needs replacement, or (4) a ground fault in the charger or wiring. Have an electrician inspect if this happens repeatedly.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">My charger works sometimes but not others. Why?</div>
+                    <div class="faq-answer">Intermittent issues often stem from: (1) loose connections that move when the cable is handled, (2) WiFi-dependent features failing when signal is weak, (3) temperature-related issues (too hot or cold), or (4) utility voltage fluctuations. Keep a log of when it fails to identify patterns.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can I fix EV charger errors myself or do I need an electrician?</div>
+                    <div class="faq-answer">Many issues like power cycling, connector cleaning, and WiFi reconnection are safe DIY fixes. However, anything involving opening the charger housing, working in the electrical panel, or addressing repeated breaker trips should be handled by a licensed electrician. When in doubt, call a pro.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do I know if the problem is my charger or my car?</div>
+                    <div class="faq-answer">The best test is trying a different charger with your vehicle (like a public station) or a different vehicle with your charger. If your car charges fine elsewhere, the home charger is suspect. If the charger works with another EV, your vehicle may have an issue.</div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h3>Still Having Issues?</h3>
+                <p>Check our detailed troubleshooting guides for specific problems or browse recommended replacement chargers.</p>
+                <a href="/guides/troubleshooting" class="btn">View All Troubleshooting Guides</a>
+            </div>
+
+            <h2>Conclusion</h2>
+
+            <p>Most EV charger errors have straightforward solutions. Start with the basics—power cycling, reconnecting, and checking for debris—before assuming hardware failure. When smart chargers show errors, the companion app usually provides more detail than the LED alone.</p>
+
+            <p>Keep this guide bookmarked for future reference, and remember: a well-installed, quality charger rarely fails. If you're experiencing frequent issues, it may be worth investing in a more reliable unit like the <a href="/article/chargepoint-home-flex-review">ChargePoint Home Flex</a> or having your installation inspected by a qualified electrician.</p>
+        </div>
+    </article>
+</body>
+</html>
