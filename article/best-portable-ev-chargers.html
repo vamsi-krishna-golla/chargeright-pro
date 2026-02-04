@@ -26,6 +26,7 @@
             --accent: #00D26A;
             --surface: #161B22;
             --surface-light: #21262D;
+            --border: #30363D;
             --text: #E6EDF3;
             --text-dim: #8B949E;
             --font-body: 'DM Sans', sans-serif;
@@ -321,6 +322,37 @@
         .faq-answer {
             padding: 0 1.5rem 1.5rem;
             color: var(--text-dim);
+        }
+
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 { margin-bottom: 1rem; color: var(--text); }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.5rem; }
+        .footer-section a { color: var(--text-dim); font-size: 0.9rem; text-decoration: none; }
+        .footer-section a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.85rem;
         }
 
         @media (max-width: 768px) {
@@ -856,5 +888,34 @@
             <p>Have questions about which charger is right for your situation? Check our <a href="/guides/home-installation">installation guides</a> or browse our <a href="/article/chargepoint-home-flex-review">wall charger reviews</a> for permanent installation options.</p>
         </div>
     </article>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>⚡ ChargeRight Pro</h4>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Expert EV charging guides for home and business.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Guides</h4>
+                <ul>
+                    <li><a href="/guides/home-installation">Home Installation</a></li>
+                    <li><a href="/guides/troubleshooting">Troubleshooting</a></li>
+                    <li><a href="/guides/commercial">Commercial</a></li>
+                    <li><a href="/guides/maintenance">Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/disclosure">Disclosure</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap.xml">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 ChargeRight Pro | Made with ❤️ for EV owners | Follow me on X: <a href="https://x.com/gvamsikrishna31" target="_blank" rel="noopener">@gvamsikrishna31</a></p>
+        </div>
+    </footer>
 </body>
 </html>
