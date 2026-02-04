@@ -115,6 +115,31 @@
             border-radius: 0 8px 8px 0;
         }
 
+        .author-box {
+            margin-top: 3rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .author-box img {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+        }
+
+        .author-box h3 { margin-bottom: 0.5rem; }
+
+        .author-box p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
         footer {
             background: var(--surface);
             border-top: 1px solid var(--border);
@@ -165,6 +190,7 @@
                     <li><a href="/guides/">Guides</a></li>
                     <li><a href="/guides/troubleshooting">Troubleshoot</a></li>
                     <li><a href="/guides/home-installation">Install</a></li>
+                    <li><a href="/about">About</a></li>
                     <li><a href="/disclosure">Disclosure</a></li>
                 </ul>
             </nav>
@@ -231,6 +257,14 @@
                 <li>Network connectivity options</li>
             </ul>
         </div>
+
+        <section class="author-box">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><rect width='200' height='200' rx='100' fill='%2300D26A'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-family='DM Sans, Arial' font-size='72' fill='%230D1117'>VK</text></svg>" alt="Vamsi Krishna">
+            <div>
+                <h3>About the Author</h3>
+                <p>Vamsi Krishna is a tech and engineering enthusiast who has personally installed 12 home chargers and troubleshot 60+ EV charging issues. Follow him on <a href="https://x.com/gvamsikrishna31" target="_blank" rel="noopener">@gvamsikrishna31</a> or learn more on the <a href="/about">About page</a>.</p>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -249,15 +283,17 @@
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Legal</h4>
+                <h4>Company</h4>
                 <ul>
-                    <li><a href="/disclosure">Affiliate Disclosure</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/disclosure">Disclosure</a></li>
+                    <li><a href="/contact">Contact</a></li>
                     <li><a href="/sitemap.xml">Sitemap</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 ChargeRight Pro. All rights reserved.</p>
+            <p>© 2026 ChargeRight Pro | Made with ❤️ for EV owners | Follow me on X: <a href="https://x.com/gvamsikrishna31" target="_blank" rel="noopener">@gvamsikrishna31</a></p>
         </div>
     </footer>
 </body>
