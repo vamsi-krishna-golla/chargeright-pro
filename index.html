@@ -5,7 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Expert guides on EV charging station installation, troubleshooting, and maintenance. From home chargers to commercial OCPP systems.">
     <meta name="keywords" content="EV charging, electric vehicle charger installation, Level 2 charger, charging station troubleshooting">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="ChargeRight Pro">
     <title>ChargeRight Pro - EV Charging Installation & Troubleshooting Guides</title>
+    <link rel="canonical" href="https://chargerightpro.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ChargeRight Pro - EV Charging Installation & Troubleshooting Guides">
+    <meta property="og:description" content="Save money and charge faster with practical EV charger installation, troubleshooting, and buyer guides.">
+    <meta property="og:url" content="https://chargerightpro.com/">
+    <meta property="og:site_name" content="ChargeRight Pro">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ChargeRight Pro - EV Charging Installation & Troubleshooting Guides">
+    <meta name="twitter:description" content="Save money and charge faster with practical EV charger installation, troubleshooting, and buyer guides.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "ChargeRight Pro",
+          "url": "https://chargerightpro.com",
+          "sameAs": [
+            "https://x.com/gvamsikrishna31"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "name": "ChargeRight Pro",
+          "url": "https://chargerightpro.com",
+          "description": "Expert EV charging installation, troubleshooting, and maintenance resources."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How much does a Level 2 EV charger installation cost?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most homeowners pay between $800 and $2,000 for panel-ready installs, while longer cable runs, panel upgrades, and trenching can push projects higher."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is a 48A charger worth it over a 40A charger?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A 48A charger is usually worth it if your panel can handle a 60A circuit and you drive high daily mileage. A 40A setup is often enough for most commuters."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I install an EV charger myself?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can handle planning, mounting prep, and Wi-Fi setup in many locations, but final electrical work should follow local code and often requires a licensed electrician and permit sign-off."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZMLSGHDJE"></script>
@@ -374,6 +436,72 @@
             text-align: center;
         }
 
+        .calculator-wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .calculator-wrap label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 0.4rem;
+        }
+
+        .calculator-wrap input,
+        .calculator-wrap select {
+            width: 100%;
+            padding: 0.7rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface-light);
+            color: var(--text);
+        }
+
+        .calculator-result {
+            background: var(--surface-light);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .faq-item p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
         /* Footer */
         footer {
             background: var(--surface);
@@ -661,6 +789,62 @@
                 </div>
             </div>
         </section>
+
+        <section class="articles-section">
+            <div class="section-header">
+                <h2>EV Charger Installation Cost Estimator</h2>
+                <p>Get a fast planning estimate before requesting electrician quotes.</p>
+            </div>
+            <div class="calculator-wrap">
+                <div class="calculator-grid">
+                    <div>
+                        <label for="panel-distance">Distance from panel to charger (ft)</label>
+                        <input id="panel-distance" type="number" value="35" min="5" max="250">
+                    </div>
+                    <div>
+                        <label for="charger-amp">Charger amperage</label>
+                        <select id="charger-amp">
+                            <option value="40">40A (most homes)</option>
+                            <option value="48" selected>48A (faster home charging)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="panel-upgrade">Panel upgrade needed?</label>
+                        <select id="panel-upgrade">
+                            <option value="0" selected>No</option>
+                            <option value="1500">Likely yes (+$1,500 est.)</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="estimate-btn" class="btn btn-primary" type="button">Calculate Estimate</button>
+                <div id="estimate-result" class="calculator-result" aria-live="polite">Estimated install range: <strong>$1,055 - $1,335</strong>. This is a planning estimate only.</div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Quick Answers EV Owners Search For</h2>
+                <p>Built to help you choose faster and avoid expensive mistakes.</p>
+            </div>
+            <div class="faq-grid">
+                <article class="faq-item">
+                    <h3>How much does Level 2 home charging really add to my electric bill?</h3>
+                    <p>Most drivers spend around $30-$90/month depending on rates and mileage. Use off-peak plans to keep costs low.</p>
+                </article>
+                <article class="faq-item">
+                    <h3>Can I use a NEMA 14-50 outlet instead of hardwiring?</h3>
+                    <p>Yes for many 32A-40A setups, but hardwiring is preferred for 48A charging and long-term reliability.</p>
+                </article>
+                <article class="faq-item">
+                    <h3>What charger should apartment renters buy?</h3>
+                    <p>Portable Level 1/2 dual-voltage chargers are best for flexibility if your parking and electrical access can change.</p>
+                </article>
+                <article class="faq-item">
+                    <h3>Which charger is best for Tesla + non-Tesla households?</h3>
+                    <p>Look for J1772/NACS compatibility and adjustable current settings so every vehicle charges safely.</p>
+                </article>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -709,5 +893,24 @@
             <p>© 2026 ChargeRight Pro | Made with ❤️ for EV owners | Follow me on X: <a href="https://x.com/gvamsikrishna31" target="_blank" rel="noopener">@gvamsikrishna31</a></p>
         </div>
     </footer>
+
+    <script>
+        const estimateBtn = document.getElementById('estimate-btn');
+        const estimateResult = document.getElementById('estimate-result');
+
+        estimateBtn?.addEventListener('click', function () {
+            const distance = Number(document.getElementById('panel-distance')?.value || 35);
+            const amp = Number(document.getElementById('charger-amp')?.value || 48);
+            const panelUpgrade = Number(document.getElementById('panel-upgrade')?.value || 0);
+
+            const permitAndLaborBase = 650;
+            const wiringCost = distance * (amp === 48 ? 9 : 7);
+            const breakerAndHardware = amp === 48 ? 280 : 210;
+            const estimatedLow = Math.round((permitAndLaborBase + wiringCost + breakerAndHardware + panelUpgrade) * 0.9);
+            const estimatedHigh = Math.round((permitAndLaborBase + wiringCost + breakerAndHardware + panelUpgrade) * 1.15);
+
+            estimateResult.innerHTML = `Estimated install range: <strong>$${estimatedLow.toLocaleString()} - $${estimatedHigh.toLocaleString()}</strong>. This is a planning estimate only; local labor and permitting vary.`;
+        });
+    </script>
 </body>
 </html>
