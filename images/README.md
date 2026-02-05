@@ -1,8 +1,5 @@
 # Profile image
 
-Add the founder headshot at:
+The founder headshot used on `/about` is embedded directly in `about.html` as a base64 data URI.
 
-- `images/vamsi-krishna.jpg`
-
-The About page (`/about`) is now configured to load this file first.
-If the file is missing, the page falls back to the existing circular `VK` placeholder.
+This avoids adding binary files to the repo (some tooling in this environment does not support binary assets in PR creation).
