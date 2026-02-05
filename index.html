@@ -54,6 +54,18 @@
             color: var(--accent-hover);
         }
 
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         /* Header */
         header {
             background: var(--surface);
@@ -377,6 +389,34 @@
             gap: 3rem;
         }
 
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .newsletter-form input {
+            padding: 0.65rem 0.75rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface-light);
+            color: var(--text);
+        }
+
+        .newsletter-form button {
+            padding: 0.65rem 0.75rem;
+            border-radius: 8px;
+            border: none;
+            background: var(--accent);
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--accent-hover);
+        }
+
         .footer-section h4 {
             font-size: 1rem;
             margin-bottom: 1rem;
@@ -474,6 +514,7 @@
                     <li><a href="/guides/">Guides</a></li>
                     <li><a href="/guides/troubleshooting">Troubleshoot</a></li>
                     <li><a href="/guides/home-installation">Install</a></li>
+                    <li><a href="/about">About</a></li>
                     <li><a href="/disclosure">Disclosure</a></li>
                 </ul>
             </nav>
@@ -498,18 +539,19 @@
                 <div class="stat-label">Installation Guides</div>
             </div>
             <div class="stat">
-                <div class="stat-number">$2,400</div>
-                <div class="stat-label">Avg. DIY Savings</div>
+                <div class="stat-number">$800–$2,000+</div>
+                <div class="stat-label">Typical DIY Savings vs Pro Quotes</div>
             </div>
             <div class="stat">
-                <div class="stat-number">89%</div>
-                <div class="stat-label">DIY Success Rate</div>
+                <div class="stat-number">Real Results</div>
+                <div class="stat-label">Thousands of owners install Level 2 chargers at home each year</div>
             </div>
             <div class="stat">
                 <div class="stat-number">24/7</div>
                 <div class="stat-label">Free Resources</div>
             </div>
         </div>
+        <p style="max-width: 1000px; margin: 0 auto; padding: 0 2rem 3rem; color: var(--text-dim); font-size: 0.9rem; text-align: center;">Savings estimates are based on typical professional install quotes and community-reported costs; actual results vary. Always consult a licensed electrician.</p>
 
         <section>
             <div class="section-header">
@@ -646,15 +688,25 @@
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Legal</h4>
+                <h4>Company</h4>
                 <ul>
-                    <li><a href="/disclosure">Affiliate Disclosure</a></li>
-                    <li><a href="/sitemap.xml">Sitemap</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/disclosure">Disclosure</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1rem;">Get EV charger tips &amp; deals weekly.</p>
+                <form class="newsletter-form" action="#" method="post">
+                    <label class="sr-only" for="newsletter-email">Email address</label>
+                    <input id="newsletter-email" name="email" type="email" placeholder="you@example.com" required>
+                    <button type="submit">Sign Up</button>
+                </form>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 ChargeRight Pro. All rights reserved. Not affiliated with any charger manufacturer.</p>
+            <p>© 2026 ChargeRight Pro | Made with ❤️ for EV owners | Follow me on X: <a href="https://x.com/gvamsikrishna31" target="_blank" rel="noopener">@gvamsikrishna31</a></p>
         </div>
     </footer>
 </body>
